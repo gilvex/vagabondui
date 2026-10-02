@@ -4,6 +4,8 @@
 
 **React 19 · TypeScript · Tailwind CSS 4 · Radix · Motion**
 
+**[Live showcase](https://gilvex.github.io/vagabondui/) · [Browse templates](https://gilvex.github.io/vagabondui/#templates)**
+
 ## Run locally
 
 Requires Node.js 22.13+ (22.x) or 24+. Node 24 is used in CI. The repository pins **pnpm 10.34.6** through `packageManager` in `package.json`.
@@ -22,6 +24,22 @@ pnpm preview     # Preview the production app
 pnpm build:lib   # Build ES modules, CSS, and declarations
 pnpm check       # Run all quality gates, builds, and tests
 ```
+
+## Deployment
+
+The showcase automatically deploys to **[GitHub Pages](https://gilvex.github.io/vagabondui/)** after a push to `main` passes the Verify workflow. Pull requests run the same checks, including production smoke tests, but do not publish. The workflow can also be started manually from GitHub Actions.
+
+The Pages build uses `/vagabondui/` as its asset base and writes to `dist-pages/`. Only that static output is uploaded. The reusable library build remains separate in `dist-lib/`.
+
+```sh
+pnpm build:pages
+pnpm test:pages       # Smoke-test the actual built app, assets, and lazy routes
+pnpm preview:pages   # http://127.0.0.1:4174/vagabondui/
+```
+
+Hash-based routes work directly on Pages, for example `/#template/chat`. Root-hosted services such as Vercel can still use `pnpm build` with `dist/` as their output directory. Pages is sufficient for this static showcase; Vercel is an option if per-PR preview deployments or server-side features become necessary.
+
+The Pages smoke tests can also target a published deployment: set `SHOWCASE_URL` to its full URL (including the trailing slash), then run `pnpm test:pages`. In that mode no local server is started.
 
 ## Components
 
