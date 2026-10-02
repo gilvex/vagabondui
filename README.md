@@ -6,20 +6,21 @@
 
 ## Run locally
 
-Requires Node.js 22.13+ (22.x) or 24+. Node 24 is used in CI.
+Requires Node.js 22.13+ (22.x) or 24+. Node 24 is used in CI. The repository pins **pnpm 10.34.6** through `packageManager` in `package.json`.
 
 ```sh
-npm install
-npm run dev
+corepack enable
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 Open the address printed by Vite, normally `http://localhost:5173`.
 
 ```sh
-npm run build       # Type-check and build the documentation app
-npm run preview     # Preview the production app
-npm run build:lib   # Build ES modules, CSS, and declarations
-npm run check       # Run all quality gates, builds, and tests
+pnpm build       # Type-check and build the documentation app
+pnpm preview     # Preview the production app
+pnpm build:lib   # Build ES modules, CSS, and declarations
+pnpm check       # Run all quality gates, builds, and tests
 ```
 
 ## Components
@@ -102,10 +103,10 @@ The `@/` alias points to `src/` in this repository. Components use relative inte
 There is no published npm package or shadcn CLI registry. Copy the component files you need and install their dependencies:
 
 ```sh
-npm install radix-ui lucide-react class-variance-authority clsx tailwind-merge
+pnpm add radix-ui lucide-react class-variance-authority clsx tailwind-merge
 # Motion is used by Tabs, Switch, and animation utilities.
 # cmdk and sonner power Command and Toast:
-npm install cmdk sonner motion
+pnpm add cmdk sonner motion
 ```
 
 Configure Tailwind CSS 4 with `@tailwindcss/vite`. Create an application stylesheet that imports the tokens and declares your application sources. Tokens include Tailwind’s base reset; their own source discovery is limited to the library.
@@ -123,7 +124,7 @@ import './styles.css'
 For the bundled fonts:
 
 ```sh
-npm install @fontsource-variable/inter @fontsource-variable/jetbrains-mono
+pnpm add @fontsource-variable/inter @fontsource-variable/jetbrains-mono
 ```
 
 ```tsx
@@ -199,9 +200,9 @@ See [the specification](docs/design-system.md), [the interface review](docs/revi
 ## Tests
 
 ```sh
-npx playwright install chromium
-npm run test:unit
-npm test
+pnpm exec playwright install chromium
+pnpm test:unit
+pnpm test
 ```
 
 Tests cover:
@@ -221,7 +222,9 @@ Tests cover:
 - End-to-end parcel processing, invalid scans/codes, exception resolution, and bulk dispatch
 - Support notes/replies and linked parcels; invoice draft-to-paid flows and exports
 
-Unit tests additionally cover persistence failure/recovery, schemas, route resolution, parcel commands, and CSV serialization. Run `npm run format` after editing and `npm run check` before submitting changes.
+Unit tests additionally cover persistence failure/recovery, schemas, route resolution, parcel commands, and CSV serialization. Run `pnpm format` after editing and `pnpm check` before submitting changes.
+
+Commit `pnpm-lock.yaml` when changing dependencies with `pnpm add` or `pnpm update`. CI installs from that lockfile with `pnpm install --frozen-lockfile`. Dependency build scripts for esbuild and the optional macOS watcher are configured in `pnpm-workspace.yaml`.
 
 Review screenshots are written to `test-results/`. GitHub Actions checks formatting and lint, runs unit tests, builds the app and library, runs browser tests, and uploads the results.
 

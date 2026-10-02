@@ -325,8 +325,14 @@ function Installation() {
         npm.
       </Heading>
       <Section title="Run this repository">
-        <p>Use Node.js 22.13+ (22.x) or 24+. CI uses Node 24.</p>
-        <CodeBlock label="Terminal" code={'npm install\nnpm run dev'} />
+        <p>
+          Use Node.js 22.13+ (22.x) or 24+. CI uses Node 24. The pnpm version is pinned in
+          package.json.
+        </p>
+        <CodeBlock
+          label="Terminal"
+          code={'corepack enable\npnpm install --frozen-lockfile\npnpm dev'}
+        />
       </Section>
       <Section title="Copy the components">
         <p>
@@ -337,7 +343,7 @@ function Installation() {
         <CodeBlock
           label="Terminal"
           code={
-            'npm install radix-ui lucide-react class-variance-authority clsx tailwind-merge\n# Command, Toast, and animated Tabs/Switch utilities:\nnpm install cmdk sonner motion\n# Optional self-hosted fonts:\nnpm install @fontsource-variable/inter @fontsource-variable/jetbrains-mono'
+            'pnpm add radix-ui lucide-react class-variance-authority clsx tailwind-merge\n# Command, Toast, and animated Tabs/Switch utilities:\npnpm add cmdk sonner motion\n# Optional self-hosted fonts:\npnpm add @fontsource-variable/inter @fontsource-variable/jetbrains-mono'
           }
         />
       </Section>
@@ -371,7 +377,7 @@ function Installation() {
       <Section title="Build and test">
         <CodeBlock
           label="Terminal"
-          code={'npm run build\nnpm run build:lib\nnpx playwright install chromium\nnpm test'}
+          code={'pnpm build\npnpm build:lib\npnpm exec playwright install chromium\npnpm test'}
         />
         <p>
           The library build emits ES modules, CSS, and declarations to <code>dist-lib/</code>.

@@ -18,7 +18,7 @@
 
 ## Verification
 
-Run `npm run check` for formatting, lint, unit tests, type-checking, both builds, and browser tests. Browser coverage includes all nine templates, component workflows, modal geometry, font-size floors, responsive overflow, and dark/light axe checks.
+Run `pnpm check` for formatting, lint, unit tests, type-checking, both builds, and browser tests. Browser coverage includes all nine templates, component workflows, modal geometry, font-size floors, responsive overflow, and dark/light axe checks. CI uses the pinned pnpm version and `pnpm install --frozen-lockfile` so clean-install dependency completeness is checked before the quality gates.
 
 The review prioritizes correctness and maintainability. Small fixture collections still use straightforward array operations; they do not need generalized data-table frameworks or indexing infrastructure. Static hash routes are deliberate and are tested as routes rather than DOM fragment targets.
 
