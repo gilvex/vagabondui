@@ -1,0 +1,113 @@
+/* Gallery previews are static illustrations, independent of application state and styles. */
+.template-category-filter {
+  margin: 0 0 28px;
+}
+.template-index-description .template-category-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.thumbnail-chat {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  height: 246px;
+  font-size: 14px;
+}
+.thumbnail-chat aside {
+  border-right: 1px solid var(--border);
+  padding: 16px 10px;
+  background: var(--surface);
+}
+.thumbnail-chat aside span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.thumbnail-chat > div {
+  padding: 16px;
+}
+.thumbnail-chat strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.thumbnail-chat p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0 16px;
+}
+.thumbnail-chat .thumbnail-field {
+  display: block;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.thumbnail-business-list {
+  padding: 18px;
+  font-size: 14px;
+}
+.thumbnail-business-list > p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.thumbnail-business-list > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.thumbnail-business-list small {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+}
+.thumbnail-avatar {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--surface-raised);
+  font-size: 14px;
+}
+.thumbnail-business-list .thumbnail-order {
+  justify-content: space-between;
+  font-size: 14px;
+}
+.thumbnail-order > span:last-child {
+  color: var(--muted);
+}
+.thumbnail-order > strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.thumbnail-scan {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--muted);
+}
+.thumbnail-business-list .thumbnail-ticket {
+  display: block;
+}
+.thumbnail-ticket strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.thumbnail-ticket > span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-lib/
+test-results/
+playwright-report/
+coverage/
+package-lock.json
+*.tsbuildinfo
+public/*.svg
