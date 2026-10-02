@@ -6,11 +6,15 @@ type RouteBase = { id: PageId; name: string; section: NavigationSection }
 export type Route = RouteBase &
   (
     | { kind: 'overview' }
+    | { kind: 'design-preview' }
     | { kind: 'components' }
     | { kind: 'component'; component: CatalogEntry }
     | { kind: 'templates' }
     | { kind: 'template'; template: TemplateDefinition }
-    | { kind: 'docs'; page: Exclude<DocPageId, 'overview' | 'components' | 'templates'> }
+    | {
+        kind: 'docs'
+        page: Exclude<DocPageId, 'overview' | 'components' | 'templates' | 'design-preview'>
+      }
   )
 
 const overview: Route = {
@@ -45,6 +49,8 @@ export function resolveRoute(hash: string): Route {
   switch (page.id) {
     case 'overview':
       return overview
+    case 'design-preview':
+      return { kind: 'design-preview', id: page.id, name: page.name, section: 'foundations' }
     case 'components':
       return { kind: 'components', id: page.id, name: page.name, section: 'components' }
     case 'templates':

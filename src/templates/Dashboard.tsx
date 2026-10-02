@@ -52,7 +52,7 @@ const chartData = {
   },
 }
 
-function ActivityChart({ period }: { period: keyof typeof chartData }) {
+export function ActivityChart({ period }: { period: keyof typeof chartData }) {
   const reduced = useReducedMotion()
   const gradientId = useId().replace(/:/g, '')
   const data = chartData[period]
@@ -84,8 +84,8 @@ function ActivityChart({ period }: { period: keyof typeof chartData }) {
       >
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--success)" stopOpacity=".18" />
-            <stop offset="100%" stopColor="var(--success)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--chart-primary)" stopOpacity=".18" />
+            <stop offset="100%" stopColor="var(--chart-primary)" stopOpacity="0" />
           </linearGradient>
         </defs>
         {[30, 80, 130, 180].map((y) => (
@@ -126,7 +126,7 @@ function ActivityChart({ period }: { period: keyof typeof chartData }) {
           key={`${period}-completed`}
           d={completed}
           fill="none"
-          stroke="var(--success)"
+          stroke="var(--chart-primary)"
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"

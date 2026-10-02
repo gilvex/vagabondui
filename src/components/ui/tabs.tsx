@@ -55,7 +55,7 @@ export function TabsTrigger({
       data-slot="tabs-trigger"
       value={value}
       className={cn(
-        'relative isolate whitespace-nowrap rounded px-3 py-2 text-sm text-muted hover:text-foreground data-[state=active]:text-foreground',
+        'relative isolate whitespace-nowrap rounded px-3 py-2 text-sm text-muted hover:text-foreground data-[state=active]:text-accent-ink',
         className,
       )}
       {...props}
@@ -64,7 +64,7 @@ export function TabsTrigger({
         <motion.span
           data-slot="tabs-indicator"
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 rounded bg-raised"
+          className="pointer-events-none absolute inset-0 -z-10 rounded bg-accent-soft"
           layoutId={`tab-${context.indicatorId}`}
           transition={reduced ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 34 }}
         />

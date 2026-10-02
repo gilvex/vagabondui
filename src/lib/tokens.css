@@ -2,7 +2,8 @@
 @source "./**/*.{ts,tsx}";
 @source "../components/ui/**/*.{ts,tsx}";
 
-:root {
+:root,
+[data-theme='dark'] {
   color-scheme: dark;
   --background: #09090b;
   --surface: #101012;
@@ -19,6 +20,17 @@
   --danger: #fda4af;
   --warning: #f2cc8f;
   --info: #9ebeff;
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
+  --accent-ink: var(--foreground);
+  --accent-soft: var(--surface-raised);
+  --ring: var(--success);
+  --chart-primary: var(--success);
+  --type-body: 'Inter Variable', sans-serif;
+  --type-heading: 'Inter Variable', sans-serif;
+  --type-mono: 'JetBrains Mono Variable', monospace;
+  --radius-control: 6px;
+  --radius-panel: 8px;
   --radius: 8px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -39,6 +51,115 @@
   --danger: #b91c36;
   --warning: #876020;
   --info: #335db6;
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
+  --accent-ink: var(--foreground);
+  --accent-soft: var(--surface-raised);
+  --ring: var(--success);
+  --chart-primary: var(--success);
+}
+
+/* The neutral preset is also the original-design comparison baseline. */
+[data-brand='vagabond'] {
+  --type-body: 'Inter Variable', sans-serif;
+  --type-heading: 'Inter Variable', sans-serif;
+  --type-mono: 'JetBrains Mono Variable', monospace;
+  --radius-control: 6px;
+  --radius-panel: 8px;
+}
+
+/* Adapted from PersonalHeroSite: olive surfaces, lime, and its type pairing. */
+[data-brand='gilvex'] {
+  --background: #141613;
+  --surface: #1b1e19;
+  --surface-raised: #252b21;
+  --surface-hover: #30372b;
+  --foreground: #f0f1e9;
+  --muted: #a9b09f;
+  --subtle: #9ba58e;
+  --border: #32392c;
+  --border-strong: #68735a;
+  --primary: #d6ef9c;
+  --primary-foreground: #202716;
+  --accent: var(--primary);
+  --accent-foreground: var(--primary-foreground);
+  --accent-ink: #d6ef9c;
+  --accent-soft: #283321;
+  --ring: #d6ef9c;
+  --chart-primary: #d6ef9c;
+  --type-body: 'DM Sans Variable', sans-serif;
+  --type-heading: 'Manrope Variable', sans-serif;
+  --type-mono: 'IBM Plex Mono', monospace;
+  --radius-control: 7px;
+  --radius-panel: 10px;
+}
+[data-brand='gilvex'][data-theme='light'] {
+  --background: #f6f7f0;
+  --surface: #eff1e8;
+  --surface-raised: #e4e9da;
+  --surface-hover: #dce3ce;
+  --foreground: #23281e;
+  --muted: #59634f;
+  --subtle: #626b58;
+  --border: #d0d8c4;
+  --border-strong: #7f8d70;
+  --primary: #426126;
+  --primary-foreground: #f9ffe9;
+  --accent-ink: #36551d;
+  --accent-soft: #e1ebd3;
+  --ring: #557636;
+  --chart-primary: #426126;
+  --success: #236735;
+  --warning: #775018;
+  --danger: #9f2038;
+  --info: #2f5399;
+}
+
+/* GilGil's gold/obsidian identity, extended with an accessible light palette. */
+[data-brand='gilgil'] {
+  --background: #121310;
+  --surface: #191a16;
+  --surface-raised: #23251e;
+  --surface-hover: #2d3027;
+  --foreground: #f1f0e9;
+  --muted: #adb0a2;
+  --subtle: #9fa48f;
+  --border: #34362c;
+  --border-strong: #6b705e;
+  --primary: #e7c17c;
+  --primary-foreground: #222117;
+  --accent: var(--primary);
+  --accent-foreground: var(--primary-foreground);
+  --accent-ink: #e7c17c;
+  --accent-soft: #30291d;
+  --ring: #e7c17c;
+  --chart-primary: #e7c17c;
+  --type-body: 'DM Sans Variable', sans-serif;
+  --type-heading: 'Manrope Variable', sans-serif;
+  --type-mono: 'IBM Plex Mono', monospace;
+  --radius-control: 4px;
+  --radius-panel: 8px;
+}
+[data-brand='gilgil'][data-theme='light'] {
+  --background: #faf7ee;
+  --surface: #fffdf7;
+  --surface-raised: #f0ebdf;
+  --surface-hover: #e9e1d1;
+  --foreground: #29271f;
+  --muted: #696353;
+  --subtle: #716b5b;
+  --border: #ddd5c4;
+  --border-strong: #8a7b62;
+  --primary: #896128;
+  --primary-foreground: #fffaf0;
+  --accent-ink: #78511d;
+  --accent-soft: #f1e6cf;
+  --ring: #896128;
+  --chart-primary: #896128;
+  --success: #236735;
+  --warning: #775018;
+  --danger: #9f2038;
+  --info: #2f5399;
 }
 @theme inline {
   --color-background: var(--background);
@@ -51,8 +172,13 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-success: var(--success);
   --color-danger: var(--danger);
-  --font-sans: 'Inter Variable', sans-serif;
-  --font-mono: 'JetBrains Mono Variable', monospace;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--type-body);
+  --font-heading: var(--type-heading);
+  --font-mono: var(--type-mono);
   --text-xs: 0.875rem;
   --text-xs--line-height: 1.5;
 }
@@ -64,7 +190,7 @@
     margin: 0;
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans);
+    font-family: var(--type-body);
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -73,6 +199,16 @@
   kbd,
   code {
     font-size: 0.875rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--type-heading);
+  }
+  [data-brand] {
+    font-family: var(--type-body);
+    color: var(--foreground);
   }
   button,
   a,
@@ -90,11 +226,11 @@
     font: inherit;
   }
   :focus-visible {
-    outline: 2px solid var(--success);
+    outline: 2px solid var(--ring);
     outline-offset: 4px;
   }
   ::selection {
-    background: #d4f5a03b;
+    background: color-mix(in srgb, var(--primary) 25%, transparent);
   }
   @media (prefers-reduced-motion: reduce) {
     *,

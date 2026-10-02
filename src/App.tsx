@@ -13,6 +13,7 @@ import { RouteContent } from './showcase/RouteContent'
 import { Sidebar } from './showcase/Sidebar'
 import { SiteHeader } from './showcase/SiteHeader'
 import { useHashRoute } from './showcase/use-hash-route'
+import { useAppearance } from './showcase/appearance'
 import { version } from '../package.json'
 
 const SearchDialog = lazy(() =>
@@ -21,9 +22,7 @@ const SearchDialog = lazy(() =>
 
 export default function App() {
   const route = useHashRoute()
-  const [theme, setTheme] = useState<'light' | 'dark'>(() =>
-    document.documentElement.dataset.theme === 'light' ? 'light' : 'dark',
-  )
+  const { theme, toggleTheme } = useAppearance()
   const [searchOpen, setSearchOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const fullWidth = route.kind === 'template'
@@ -48,17 +47,6 @@ export default function App() {
   useEffect(() => {
     document.title = `${route.name} — Vagabond UI`
   }, [route.name])
-
-  function toggleTheme() {
-    const next = theme === 'dark' ? 'light' : 'dark'
-    setTheme(next)
-    document.documentElement.dataset.theme = next
-    try {
-      localStorage.setItem('vagabond-theme', next)
-    } catch {
-      /* Theme changes still work without storage. */
-    }
-  }
 
   return (
     <>

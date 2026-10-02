@@ -384,7 +384,10 @@ export default function Billing() {
           </TableHeader>
           <TableBody>
             {rows.map((invoice) => (
-              <TableRow key={invoice.id}>
+              <TableRow
+                key={invoice.id}
+                data-state={selected.includes(invoice.id) ? 'selected' : undefined}
+              >
                 <TableCell>
                   <Checkbox
                     aria-label={`Select ${invoice.id}`}

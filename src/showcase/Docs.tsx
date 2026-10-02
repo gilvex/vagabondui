@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Button, Card, CardContent, transitions } from '../lib'
 import { catalog, type DocPageId } from './catalog'
 import { CodeBlock } from './CodeBlock'
+import { useAppearance } from './appearance'
 
 function Heading({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -37,6 +38,7 @@ const colors = [
 ]
 
 function Colors() {
+  const { theme } = useAppearance()
   const [copied, setCopied] = useState('')
   async function copy(token: string) {
     try {
@@ -49,10 +51,10 @@ function Colors() {
   return (
     <>
       <Heading title="Colors">
-        Semantic tokens for light and dark themes. Components reference a color’s role rather than a
-        hard-coded value.
+        The default Vagabond palette, shown in light and dark values. Components reference a color’s
+        role rather than a hard-coded value. Brand overrides are available in the Design preview.
       </Heading>
-      <div className="token-grid">
+      <div className="token-grid" data-brand="vagabond" data-theme={theme}>
         {colors.map(([name, token, dark, light]) => (
           <article className="token-card" key={token}>
             <div className="token-swatch" style={{ background: `var(${token})` }} />
@@ -103,13 +105,14 @@ function Colors() {
 }
 
 function Typography() {
+  const { theme } = useAppearance()
   return (
     <>
       <Heading title="Typography">
-        Inter for interface text. JetBrains Mono for code. No text in this system is smaller than
-        14px.
+        The original preset uses Inter and JetBrains Mono. Gilvex and GilGil introduce Manrope, DM
+        Sans, and IBM Plex Mono in the Design preview. All presets keep a 14px minimum.
       </Heading>
-      <div className="type-pair">
+      <div className="type-pair" data-brand="vagabond" data-theme={theme}>
         <Card>
           <CardContent>
             <p className="text-sm text-muted">Interface</p>
@@ -555,6 +558,7 @@ export function Docs({ page }: { page: DocPageId }) {
     overview: null,
     components: null,
     templates: null,
+    'design-preview': null,
   }[page]
   return <div className="docs-page">{content}</div>
 }

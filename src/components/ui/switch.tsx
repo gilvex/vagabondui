@@ -22,7 +22,7 @@ export function Switch({
         onCheckedChange?.(next)
       }}
       className={cn(
-        'inline-flex h-6 w-11 shrink-0 items-center rounded-full border border-[var(--border-strong)] bg-raised p-0.5 transition-colors data-[state=checked]:border-transparent data-[state=checked]:bg-foreground disabled:opacity-40',
+        'inline-flex h-6 w-11 shrink-0 items-center rounded-full border border-[var(--border-strong)] bg-raised p-0.5 transition-colors data-[state=checked]:border-transparent data-[state=checked]:bg-primary disabled:opacity-40',
         className,
       )}
       {...props}
@@ -33,7 +33,7 @@ export function Switch({
           initial={false}
           animate={{ x: active ? 20 : 0 }}
           transition={reduced ? { duration: 0 } : { type: 'spring', stiffness: 480, damping: 30 }}
-          className="block size-4.5 rounded-full bg-muted data-[state=checked]:bg-background"
+          className="block size-4.5 rounded-full bg-muted data-[state=checked]:bg-primary-foreground"
         />
       </Primitive.Thumb>
     </Primitive.Root>

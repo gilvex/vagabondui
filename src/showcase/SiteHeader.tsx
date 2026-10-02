@@ -1,6 +1,7 @@
 import { Menu, Moon, Search, Sun } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import type { NavigationSection } from './routes'
+import { AppearanceMenu } from './AppearanceMenu'
 
 const navigation = [
   { id: 'components', href: '#components', name: 'Components' },
@@ -53,6 +54,7 @@ export function SiteHeader({
           <span>Search documentation</span>
           <kbd>⌘ K</kbd>
         </button>
+        <AppearanceMenu />
         <Button
           variant="ghost"
           size="icon"

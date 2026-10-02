@@ -5,7 +5,10 @@ export function Card({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       data-slot="card"
-      className={cn('rounded-lg border border-border bg-surface text-foreground', className)}
+      className={cn(
+        'rounded-[var(--radius-panel)] border border-border bg-surface text-foreground',
+        className,
+      )}
       {...props}
     />
   )

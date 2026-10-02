@@ -9,7 +9,7 @@ export function RadioGroupItem({ className, ...props }: ComponentProps<typeof Pr
   return (
     <Primitive.Item
       className={cn(
-        'size-5 shrink-0 rounded-full border border-[var(--border-strong)] bg-background text-foreground disabled:opacity-40',
+        'size-5 shrink-0 rounded-full border border-[var(--border-strong)] bg-background text-primary disabled:opacity-40',
         className,
       )}
       {...props}

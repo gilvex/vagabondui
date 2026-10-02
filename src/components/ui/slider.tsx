@@ -21,13 +21,13 @@ export function Slider({
       {...props}
     >
       <Primitive.Track className="relative grow overflow-hidden rounded-full bg-raised data-[orientation=horizontal]:h-2 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2">
-        <Primitive.Range className="absolute rounded-full bg-foreground data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full" />
+        <Primitive.Range className="absolute rounded-full bg-primary data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full" />
       </Primitive.Track>
       {values.map((_, index) => (
         <Primitive.Thumb
           key={index}
           aria-label={thumbLabels?.[index] || props['aria-label']}
-          className="block size-5 rounded-full border-2 border-foreground bg-background shadow-sm"
+          className="block size-5 rounded-full border-2 border-primary bg-background shadow-sm"
         />
       ))}
     </Primitive.Root>

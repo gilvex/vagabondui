@@ -9,7 +9,7 @@ export function Checkbox({ className, checked, ...props }: ComponentProps<typeof
       data-slot="checkbox"
       checked={checked}
       className={cn(
-        'inline-flex size-5 shrink-0 items-center justify-center rounded border border-[var(--border-strong)] bg-background disabled:opacity-40 data-[state=checked]:border-foreground data-[state=checked]:bg-foreground data-[state=checked]:text-background data-[state=indeterminate]:bg-foreground data-[state=indeterminate]:text-background',
+        'inline-flex size-5 shrink-0 items-center justify-center rounded border border-[var(--border-strong)] bg-background disabled:opacity-40 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground',
         className,
       )}
       {...props}

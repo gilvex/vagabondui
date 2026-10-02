@@ -205,6 +205,8 @@ Dialog centering remains layout-only; dialogs fade without moving. CSS and Motio
 
 ## Design constraints
 
+The local design review adds three appearance presets: **Vagabond** (the original zinc/Inter baseline), **Gilvex** (olive/lime), and **GilGil** (obsidian/gold). Open `/#design-preview` to compare them, or use the appearance menu on any page. See [the preview guide](docs/design-preview.md) for review links, source palettes, and font setup.
+
 - **14px minimum** for all text: navigation, labels, helper text, code, tooltips, and metadata. Body text is 16px.
 - Inputs use 16px on mobile to avoid automatic browser zoom.
 - Dialog centering is CSS layout, independent of animation. Entrances use opacity only.

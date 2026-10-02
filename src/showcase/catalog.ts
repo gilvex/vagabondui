@@ -369,6 +369,7 @@ export const categories: Category[] = [
 ]
 export const pages = [
   { id: 'overview', name: 'Overview', group: 'Getting started' },
+  { id: 'design-preview', name: 'Design preview', group: 'Getting started' },
   { id: 'installation', name: 'Installation', group: 'Getting started' },
   { id: 'templates', name: 'All templates', group: 'Templates' },
   { id: 'principles', name: 'Design principles', group: 'Foundations' },

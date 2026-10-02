@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-brand="vagabond">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,9 +11,19 @@
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <title>Vagabond UI — React components</title>
     <script>
-      try {
-        document.documentElement.dataset.theme = localStorage.getItem('vagabond-theme') || 'dark'
-      } catch {}
+      {
+        const query = new URLSearchParams(location.search)
+        let theme = query.get('theme')
+        let brand = query.get('brand')
+        try {
+          theme ||= localStorage.getItem('vagabond-theme')
+          brand ||= localStorage.getItem('vagabond-brand')
+        } catch {}
+        document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark'
+        document.documentElement.dataset.brand = ['vagabond', 'gilvex', 'gilgil'].includes(brand)
+          ? brand
+          : 'vagabond'
+      }
     </script>
   </head>
   <body>

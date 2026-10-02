@@ -1,0 +1,308 @@
+/* Shared theme hooks: the neutral preset resolves to the original component colors. */
+.site-header .brand {
+  font-family: var(--type-heading);
+}
+.site-header .brand > svg {
+  color: var(--accent-ink);
+}
+.sidebar-link.active {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.top-nav a.active {
+  border-color: var(--accent-ink);
+}
+.filter-button.active {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.component-search:focus-within {
+  outline-color: var(--ring);
+}
+.appearance-trigger {
+  min-width: 122px;
+  justify-content: space-between;
+}
+.appearance-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 18%, transparent);
+}
+.appearance-menu {
+  width: 258px;
+}
+.appearance-option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 3px 0;
+}
+.appearance-option strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 550;
+}
+.appearance-option > div > span {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.template-app-header .template-nav-indicator {
+  background: var(--primary);
+}
+.template-app-header .workspace-mark {
+  color: var(--accent-ink);
+  border-color: color-mix(in srgb, var(--accent-ink) 35%, var(--border));
+}
+.template-app-header .workspace-user {
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.activity-chart .legend-completed {
+  background: var(--chart-primary);
+}
+
+/* Studio treatment is opt-in, so Vagabond remains a usable before-comparison. */
+:root:not([data-brand='vagabond']) .eyebrow {
+  font-family: var(--type-mono);
+  font-size: 14px;
+  letter-spacing: 0.015em;
+}
+:root:not([data-brand='vagabond']) .site-header {
+  background: var(--background);
+}
+:root:not([data-brand='vagabond']) .sidebar {
+  background: var(--background);
+}
+:root:not([data-brand='vagabond']) .library-heading h1 {
+  font-weight: 550;
+  letter-spacing: -0.045em;
+}
+:root:not([data-brand='vagabond']) .component-card {
+  background: var(--surface);
+  border-radius: var(--radius-panel);
+}
+:root:not([data-brand='vagabond']) .component-caption h2 {
+  font-family: var(--type-heading);
+  font-weight: 600;
+}
+:root:not([data-brand='vagabond']) .demo-stage {
+  background: var(--surface);
+}
+:root:not([data-brand='vagabond']) .template-app {
+  border-radius: 12px;
+  border-color: var(--border-strong);
+}
+:root:not([data-brand='vagabond']) .template-app-header {
+  background: var(--background);
+  height: 80px;
+}
+:root:not([data-brand='vagabond']) .template-brand {
+  font-family: var(--type-heading);
+  font-size: 18px;
+  letter-spacing: -0.035em;
+}
+:root:not([data-brand='vagabond']) .template-page-heading {
+  margin-bottom: 36px;
+}
+:root:not([data-brand='vagabond']) .template-page-heading h1 {
+  font-family: var(--type-heading);
+  font-size: 36px;
+  font-weight: 550;
+  letter-spacing: -0.045em;
+}
+:root:not([data-brand='vagabond']) .template-page-heading .eyebrow {
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .template-content [data-slot='card'] {
+  border-radius: var(--radius-panel);
+}
+:root:not([data-brand='vagabond']) .metric-grid {
+  gap: 18px;
+}
+:root:not([data-brand='vagabond']) .metric-value strong {
+  font-family: var(--type-heading);
+  font-size: 40px;
+  font-weight: 550;
+  letter-spacing: -0.045em;
+}
+:root:not([data-brand='vagabond']) .metric-label > svg {
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .metric-grid > div:first-child .metric-card {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+}
+:root:not([data-brand='vagabond']) .metric-grid > div:first-child .metric-value strong {
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .metric-card [data-slot='card-content'] {
+  padding: 24px;
+}
+:root:not([data-brand='vagabond']) .chart-card [data-slot='card-header'] {
+  padding-bottom: 14px;
+}
+:root:not([data-brand='vagabond']) .chart-legend {
+  margin-top: 14px;
+}
+:root:not([data-brand='vagabond']) .activity-icon {
+  border-color: var(--border);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) [data-slot='card-title'] {
+  font-family: var(--type-heading);
+  letter-spacing: -0.025em;
+}
+:root:not([data-brand='vagabond']) .business-summary strong {
+  font-family: var(--type-heading);
+  font-weight: 550;
+}
+:root:not([data-brand='vagabond']) .business-summary > div:first-child strong {
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .template-billing .business-table-panel {
+  border-radius: var(--radius-panel);
+}
+:root:not([data-brand='vagabond']) .template-billing .business-table-panel thead {
+  background: var(--surface-raised);
+}
+:root:not([data-brand='vagabond']) .template-billing .business-table-panel td {
+  padding-block: 22px;
+}
+:root:not([data-brand='vagabond']) .template-billing .business-table-panel td:nth-last-child(2) {
+  font-family: var(--type-mono);
+  font-size: 14px;
+}
+:root:not([data-brand='vagabond']) .template-billing tr[data-state='selected'] {
+  background: var(--accent-soft);
+}
+:root:not([data-brand='vagabond']) .invoice-amount > strong {
+  font-family: var(--type-heading);
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .chat-layout {
+  --chat-accent: var(--primary);
+}
+:root:not([data-brand='vagabond']) .server-icon:hover,
+:root:not([data-brand='vagabond']) .server-icon.selected,
+:root:not([data-brand='vagabond']) .chat-send {
+  color: var(--primary-foreground);
+}
+:root:not([data-brand='vagabond']) .chat-channel-group button.active {
+  position: relative;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .chat-channel-group button.active::before {
+  content: '';
+  position: absolute;
+  inset: 8px auto 8px -6px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+:root:not([data-brand='vagabond']) .chat-channel-title h1 {
+  font-family: var(--type-heading);
+  font-size: 20px;
+}
+:root:not([data-brand='vagabond']) .chat-workspace-name > span:first-child {
+  font-family: var(--type-heading);
+  font-size: 18px;
+  letter-spacing: -0.025em;
+}
+:root:not([data-brand='vagabond']) .message-text {
+  font-size: 16px;
+  line-height: 1.65;
+}
+:root:not([data-brand='vagabond']) .chat-message-list {
+  padding-top: 20px;
+}
+:root:not([data-brand='vagabond']) .chat-composer {
+  border-color: var(--border-strong);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+}
+:root:not([data-brand='vagabond']) .chat-message.is-pinned {
+  background: color-mix(in srgb, var(--accent-soft) 36%, transparent);
+}
+:root:not([data-brand='vagabond']) .message-pin {
+  color: var(--accent-ink);
+}
+:root:not([data-brand='vagabond']) .message-reactions button[aria-pressed='true'] {
+  color: var(--accent-ink);
+  border-color: var(--primary);
+  background: var(--accent-soft);
+}
+:root:not([data-brand='vagabond']) .message-thread-link {
+  color: var(--accent-ink);
+}
+
+@media (max-width: 1250px) {
+  .appearance-trigger {
+    min-width: 112px;
+  }
+}
+@media (max-width: 960px) {
+  .appearance-trigger {
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    padding: 0;
+  }
+  .appearance-label,
+  .appearance-chevron {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  :root:not([data-brand='vagabond']) .template-app-header {
+    height: auto;
+  }
+  :root:not([data-brand='vagabond']) .template-page-heading h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 580px) {
+  .site-header {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+  .site-header .brand {
+    gap: 7px;
+    font-size: 18px;
+  }
+  .site-header .brand > svg {
+    width: 20px;
+  }
+  .header-actions {
+    gap: 2px;
+  }
+  .header-actions > button,
+  .header-actions .appearance-trigger {
+    width: 32px;
+    height: 36px;
+    min-width: 32px;
+  }
+  .header-search {
+    padding-inline: 0;
+  }
+  :root:not([data-brand='vagabond']) .metric-card [data-slot='card-content'] {
+    padding: 16px;
+  }
+  :root:not([data-brand='vagabond']) .metric-value strong {
+    font-size: 34px;
+  }
+  :root:not([data-brand='vagabond']) .template-page-heading h1 {
+    font-size: 28px;
+  }
+  :root:not([data-brand='vagabond']) .template-billing .business-table-panel td {
+    padding-block: 18px;
+  }
+}
