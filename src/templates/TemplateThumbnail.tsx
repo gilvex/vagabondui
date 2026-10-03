@@ -165,34 +165,23 @@ function BillingPreview() {
 }
 function BankingPreview() {
   return (
-    <div className="thumbnail-dashboard">
-      <div className="thumbnail-metrics">
-        <div>
-          <span>Available balance</span>
-          <strong>$30,095</strong>
-        </div>
-        <div>
-          <span>Accounts</span>
-          <strong>03</strong>
-        </div>
+    <div className="thumbnail-bank-app">
+      <div className="thumbnail-bank-card">
+        <span>Meridian · Everyday</span>
+        <i />
+        <strong>•••• •••• 4821</strong>
       </div>
-      <div className="thumbnail-chart">
-        <p>Meridian · Your money, in focus</p>
-        <div>
-          {[36, 48, 42, 62, 68, 86, 96].map((height, index) => (
-            <i key={index} style={{ height: `${height}%` }} />
-          ))}
-        </div>
+      <div className="thumbnail-bank-navigation">
+        <span>Home</span>
+        <span>Wallet</span>
+        <span>Pay</span>
+        <span>Cards</span>
       </div>
     </div>
   )
 }
 const previews = {
   banking: BankingPreview,
-  'banking-accounts': BankingPreview,
-  'banking-transactions': BankingPreview,
-  'banking-transfers': BankingPreview,
-  'banking-cards': BankingPreview,
   dashboard: DashboardPreview,
   projects: ProjectsPreview,
   settings: SettingsPreview,
@@ -212,7 +201,7 @@ export function TemplateThumbnail({ id }: { id: TemplateId }) {
         <span>
           <Layers size={16} /> {id.startsWith('banking') ? 'Meridian Bank' : 'Northstar'}
         </span>
-        <span>Workspace</span>
+        <span>{id === 'banking' ? 'Bank app' : 'Workspace'}</span>
       </div>
       <Preview />
     </div>

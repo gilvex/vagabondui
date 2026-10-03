@@ -23,15 +23,9 @@ export const suites: Record<TemplateSuite, Suite> = {
     brand: 'Meridian Bank',
     icon: Landmark,
     home: 'banking',
-    showHeader: true,
+    showHeader: false,
     footerBrand: 'Meridian Bank',
-    navigation: [
-      { id: 'banking', label: 'Overview' },
-      { id: 'banking-accounts', label: 'Accounts' },
-      { id: 'banking-transactions', label: 'Transactions' },
-      { id: 'banking-transfers', label: 'Transfers' },
-      { id: 'banking-cards', label: 'Cards' },
-    ],
+    navigation: [],
   },
   workspace: {
     brand: 'Northstar',

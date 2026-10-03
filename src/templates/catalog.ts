@@ -1,3 +1,5 @@
+import type { BankPage } from './banking/navigation'
+
 /** Lightweight metadata shared by navigation and search; no demo state or page imports. */
 export const templateCatalog = [
   {
@@ -83,52 +85,17 @@ export const templateCatalog = [
   },
   {
     id: 'banking',
-    name: 'Banking overview',
+    name: 'Bank app',
     suite: 'banking',
     category: 'Finance',
-    description: 'A personal banking dashboard with balances, cash flow, and recent activity.',
-    components: 'Card · Badge · Table · Button',
-    file: 'banking/Overview.tsx',
-  },
-  {
-    id: 'banking-accounts',
-    name: 'Bank accounts',
-    suite: 'banking',
-    category: 'Finance',
-    description: 'Checking and savings accounts with details and shared live balances.',
-    components: 'Card · Dialog · Badge · Button',
-    file: 'banking/Accounts.tsx',
-  },
-  {
-    id: 'banking-transactions',
-    name: 'Bank transactions',
-    suite: 'banking',
-    category: 'Finance',
-    description: 'Search and filter account activity, inspect payments, and export a CSV.',
-    components: 'Input · Select · Table · Dialog · Badge',
-    file: 'banking/Transactions.tsx',
-  },
-  {
-    id: 'banking-transfers',
-    name: 'Bank transfers',
-    suite: 'banking',
-    category: 'Finance',
-    description: 'Move demo money between accounts with validation, review, and receipts.',
-    components: 'Input · Select · Dialog · Button',
-    file: 'banking/Transfers.tsx',
-  },
-  {
-    id: 'banking-cards',
-    name: 'Bank cards',
-    suite: 'banking',
-    category: 'Finance',
-    description: 'Manage physical and virtual cards, freeze access, and set spending limits.',
-    components: 'Switch · Input · Progress · Badge',
-    file: 'banking/Cards.tsx',
+    description:
+      'One connected banking app: balances, accounts, activity, transfers, and card controls. Built for desktop and mobile.',
+    components: 'Card · Tabs · Switch · Dialog · Table · Select',
+    file: 'BankingTemplate.tsx',
   },
 ] as const
 
 export type TemplateDefinition = (typeof templateCatalog)[number]
 export type TemplateId = TemplateDefinition['id']
 export type TemplateSuite = TemplateDefinition['suite']
-export type TemplatePageId = 'templates' | `template/${TemplateId}`
+export type TemplatePageId = 'templates' | `template/${TemplateId}` | `template/banking/${BankPage}`

@@ -67,7 +67,11 @@ export function TemplateFrame({
         )}
         <motion.div
           key={template.id}
-          initial={reduced || template.id === 'chat' ? false : { opacity: 0, y: 8 }}
+          initial={
+            reduced || template.id === 'chat' || template.id === 'banking'
+              ? false
+              : { opacity: 0, y: 8 }
+          }
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reduced ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
         >

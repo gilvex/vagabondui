@@ -14,17 +14,19 @@
 | `/#template/pickup`               | `src/templates/Pickup.tsx`               | Receipt, shelf assignment, collection verification        |
 | `/#template/support`              | `src/templates/Support.tsx`              | Conversations, notes, assignment, linked orders           |
 | `/#template/billing`              | `src/templates/Billing.tsx`              | Drafts, receivables, payment records, invoice exports     |
-| `/#template/banking`              | `src/templates/banking/Overview.tsx`     | Balances, cash flow, and spending overview                |
-| `/#template/banking-accounts`     | `src/templates/banking/Accounts.tsx`     | Account details and masked identifiers                    |
-| `/#template/banking-transactions` | `src/templates/banking/Transactions.tsx` | Activity filters, details, and exports                    |
-| `/#template/banking-transfers`    | `src/templates/banking/Transfers.tsx`    | Transfer validation, review, and receipts                 |
-| `/#template/banking-cards`        | `src/templates/banking/Cards.tsx`        | Freeze controls, payments, and spending limits            |
+| `/#template/banking`              | `src/templates/BankingTemplate.tsx`      | Bank app shell, overview, and internal navigation         |
+| `/#template/banking/accounts`     | `src/templates/banking/Accounts.tsx`     | Account details and masked identifiers                    |
+| `/#template/banking/transactions` | `src/templates/banking/Transactions.tsx` | Activity filters, details, and exports                    |
+| `/#template/banking/transfers`    | `src/templates/banking/Transfers.tsx`    | Transfer validation, review, and receipts                 |
+| `/#template/banking/cards`        | `src/templates/banking/Cards.tsx`        | Freeze controls, payments, and spending limits            |
 
 `TaskControls.tsx` shares the new-task dialog, editing sheet, status badge, and assignee display. `templates.css` contains layout styles. Components use public `vagabond-ui/*` imports through the root application's `workspace:*` dependency.
 
 The business pages share data, forms, and styles under `src/templates/business/`. `EmployeeForms.tsx` supplies employee creation/profile editing. `ParcelControls.tsx` re-exports the separate queue and details components; `ParcelActionDialog.tsx` owns action input. `parcels.ts` implements pure commands and `use-parcel-command.ts` applies them atomically through the store. The banking suite has its own provider and models under `src/templates/banking/`. All fourteen page implementations are separately lazy-loaded.
 
 ## Data model
+
+The gallery contains ten templates. **Bank app** is one entry with five internal sections: desktop sidebar navigation becomes a mobile bottom bar, account summaries are swipeable, and activity switches from tables to compact lists. Its 336px-wide card illustrations retain credit-card proportions, with forest/graphite textures and inline SVG gold chips. Previously shared `banking-accounts`, `banking-transactions`, `banking-transfers`, and `banking-cards` routes remain supported.
 
 `data.ts` defines the sample workspace. `schema.ts` defines its runtime schema and inferred types. `store.tsx` exposes the React context; `persistent-store.ts` owns synchronous browser-local persistence and atomic transactions. The storage key is `vagabond-template-workspace-v1`.
 

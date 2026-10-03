@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Wifi, Landmark, LockKeyhole } from 'lucide-react'
+import { LockKeyhole } from 'lucide-react'
 import { toast } from 'vagabond-ui/sonner'
 import { Badge } from 'vagabond-ui/badge'
 import { Button } from 'vagabond-ui/button'
@@ -8,11 +8,13 @@ import { Input } from 'vagabond-ui/input'
 import { Label } from 'vagabond-ui/label'
 import { Progress } from 'vagabond-ui/progress'
 import { Switch } from 'vagabond-ui/switch'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from 'vagabond-ui/tabs'
 import { parseAmount } from './commands'
 import type { BankCard } from './schema'
 import { BankHeading } from './shared'
 import { money } from './format'
 import { useBanking } from './store'
+import { PaymentCard } from './PaymentCard'
 
 function CardControls({ card }: { card: BankCard }) {
   const { data, setData } = useBanking()
@@ -40,95 +42,101 @@ function CardControls({ card }: { card: BankCard }) {
     toast.success(`Spending limit updated for ${card.name}`)
   }
   return (
-    <Card className="bank-panel" role="region" aria-label={card.name}>
-      <div
-        className={`bank-debit-card ${card.kind === 'Virtual' ? 'bank-virtual-card' : ''} ${card.frozen ? 'bank-frozen-card' : ''}`}
-      >
-        <div className="bank-section-heading">
+    <section className="bank-card-workspace" aria-label={card.name}>
+      <div className="bank-card-presentation">
+        <div className="bank-card-stage">
+          <PaymentCard card={card} />
+        </div>
+        <div className="bank-section-heading bank-spaced">
+          <h2>{card.name}</h2>
+          <Badge tone={card.frozen ? 'warning' : 'success'}>
+            {card.frozen ? 'Frozen' : 'Active'}
+          </Badge>
+        </div>
+        <p className="bank-muted">
+          Linked to {data.accounts.find((account) => account.id === card.accountId)?.name}
+        </p>
+        <div className="bank-card-material">
+          <span className="bank-material-swatch" data-kind={card.kind} />
           <span>
-            <Landmark size={18} aria-hidden="true" /> Meridian
+            {card.kind === 'Physical' ? 'Forest · Brushed finish' : 'Graphite · Satin finish'}
           </span>
-          <Wifi size={24} aria-hidden="true" />
         </div>
-        <span className="bank-chip" aria-hidden="true" />
-        <p className="bank-card-number">•••• •••• •••• {card.last4}</p>
-        <div className="bank-section-heading">
-          <span>Alex Morgan</span>
-          <span>{card.kind} · Debit</span>
-        </div>
-      </div>
-      <div className="bank-section-heading bank-spaced">
-        <h2>{card.name}</h2>
-        <Badge tone={card.frozen ? 'warning' : 'success'}>
-          {card.frozen ? 'Frozen' : 'Active'}
-        </Badge>
-      </div>
-      <p className="bank-muted">
-        Linked to {data.accounts.find((account) => account.id === card.accountId)?.name}
-      </p>
-      <div className="bank-switch-row">
-        <div>
-          <Label htmlFor={`freeze-${card.id}`}>Freeze {card.name}</Label>
-          <p className="bank-muted">Pause all new card payments.</p>
-        </div>
-        <Switch
-          id={`freeze-${card.id}`}
-          checked={card.frozen}
-          onCheckedChange={(frozen) => {
-            update({ frozen })
-            toast.success(`${card.name} ${frozen ? 'frozen' : 'unfrozen'}`)
-          }}
-        />
-      </div>
-      <div className="bank-switch-row">
-        <div>
-          <Label htmlFor={`online-${card.id}`}>Online payments for {card.name}</Label>
-          <p className="bank-muted">Allow purchases on the web.</p>
-        </div>
-        <Switch
-          id={`online-${card.id}`}
-          checked={card.online}
-          disabled={card.frozen}
-          onCheckedChange={(online) => update({ online })}
-        />
-      </div>
-      {card.frozen && (
-        <p className="bank-muted" role="status">
-          All payments are paused. Unfreeze this card to change online payment access.
-        </p>
-      )}
-      <div className="bank-spaced">
-        <div className="bank-section-heading">
-          <span>September spending</span>
-          <strong>{money(card.spent)}</strong>
-        </div>
-        <Progress value={(card.spent / card.limit) * 100} label={`${card.name} monthly spending`} />
-        <p className="bank-muted mt-2">
-          {money(card.limit - card.spent)} remaining of {money(card.limit)}
+        <p className="bank-muted">
+          {card.kind === 'Physical'
+            ? 'Made for your everyday. Tap, pay, and get on with your day.'
+            : 'A separate card for your online world. Your everyday account, with an extra layer of control.'}
         </p>
       </div>
-      <form onSubmit={saveLimit} className="template-form bank-spaced">
-        <div className="form-field">
-          <Label htmlFor={`limit-${card.id}`}>Monthly limit (USD)</Label>
-          <Input
-            id={`limit-${card.id}`}
-            inputMode="decimal"
-            value={limit}
-            onChange={(event) => setLimit(event.target.value)}
-            aria-invalid={!!error}
-            aria-describedby={error ? `limit-error-${card.id}` : undefined}
+      <Card className="bank-panel bank-card-settings">
+        <h2>Card controls</h2>
+        <div className="bank-switch-row">
+          <div>
+            <Label htmlFor={`freeze-${card.id}`}>Freeze {card.name}</Label>
+            <p className="bank-muted">Pause all new card payments.</p>
+          </div>
+          <Switch
+            id={`freeze-${card.id}`}
+            checked={card.frozen}
+            onCheckedChange={(frozen) => {
+              update({ frozen })
+              toast.success(`${card.name} ${frozen ? 'frozen' : 'unfrozen'}`)
+            }}
           />
-          {error && (
-            <p id={`limit-error-${card.id}`} role="alert" className="text-danger">
-              {error}
-            </p>
-          )}
         </div>
-        <Button variant="outline" type="submit">
-          Save spending limit
-        </Button>
-      </form>
-    </Card>
+        <div className="bank-switch-row">
+          <div>
+            <Label htmlFor={`online-${card.id}`}>Online payments for {card.name}</Label>
+            <p className="bank-muted">Allow purchases on the web.</p>
+          </div>
+          <Switch
+            id={`online-${card.id}`}
+            checked={card.online}
+            disabled={card.frozen}
+            onCheckedChange={(online) => update({ online })}
+          />
+        </div>
+        {card.frozen && (
+          <p className="bank-muted" role="status">
+            All payments are paused. Unfreeze this card to change online payment access.
+          </p>
+        )}
+        <div className="bank-spaced">
+          <div className="bank-section-heading">
+            <span>September spending</span>
+            <strong>{money(card.spent)}</strong>
+          </div>
+          <Progress
+            value={(card.spent / card.limit) * 100}
+            label={`${card.name} monthly spending`}
+          />
+          <p className="bank-muted mt-2">
+            {money(card.limit - card.spent)} remaining of {money(card.limit)}
+          </p>
+        </div>
+        <form onSubmit={saveLimit} className="template-form bank-spaced">
+          <div className="form-field">
+            <Label htmlFor={`limit-${card.id}`}>Monthly limit (USD)</Label>
+            <Input
+              id={`limit-${card.id}`}
+              inputMode="decimal"
+              value={limit}
+              onChange={(event) => setLimit(event.target.value)}
+              aria-invalid={!!error}
+              aria-describedby={error ? `limit-error-${card.id}` : undefined}
+            />
+            {error && (
+              <p id={`limit-error-${card.id}`} role="alert" className="text-danger">
+                {error}
+              </p>
+            )}
+          </div>
+          <Button variant="outline" type="submit">
+            Save spending limit
+          </Button>
+        </form>
+      </Card>
+    </section>
   )
 }
 
@@ -140,11 +148,20 @@ export default function Cards() {
         title="Your cards"
         description="A little more control. A lot more peace of mind."
       />
-      <div className="bank-overview-grid">
+      <Tabs defaultValue={data.cards[0]?.id} className="bank-card-tabs">
+        <TabsList aria-label="Your bank cards">
+          {data.cards.map((card) => (
+            <TabsTrigger key={card.id} value={card.id}>
+              {card.name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
         {data.cards.map((card) => (
-          <CardControls key={card.id} card={card} />
+          <TabsContent key={card.id} value={card.id}>
+            <CardControls card={card} />
+          </TabsContent>
         ))}
-      </div>
+      </Tabs>
       <p className="template-footnote bank-inline">
         <LockKeyhole size={16} aria-hidden="true" /> Only sample, masked card numbers are shown.
         Controls are saved locally for this demo.

@@ -19,7 +19,7 @@ export default function Accounts() {
         description="A place for your everyday, your rainy day, and your someday."
       >
         <Button asChild>
-          <a href="#template/banking-transfers">
+          <a href="#template/banking/transfers">
             <ArrowUpRight size={16} /> Move money
           </a>
         </Button>
