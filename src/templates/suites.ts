@@ -1,4 +1,12 @@
-import { Layers, MessageSquare, Package, Users, Wallet, type LucideIcon } from 'lucide-react'
+import {
+  Landmark,
+  Layers,
+  MessageSquare,
+  Package,
+  Users,
+  Wallet,
+  type LucideIcon,
+} from 'lucide-react'
 import type { TemplateId, TemplateSuite } from './catalog'
 
 type Suite = {
@@ -11,6 +19,20 @@ type Suite = {
 }
 
 export const suites: Record<TemplateSuite, Suite> = {
+  banking: {
+    brand: 'Meridian Bank',
+    icon: Landmark,
+    home: 'banking',
+    showHeader: true,
+    footerBrand: 'Meridian Bank',
+    navigation: [
+      { id: 'banking', label: 'Overview' },
+      { id: 'banking-accounts', label: 'Accounts' },
+      { id: 'banking-transactions', label: 'Transactions' },
+      { id: 'banking-transfers', label: 'Transfers' },
+      { id: 'banking-cards', label: 'Cards' },
+    ],
+  },
   workspace: {
     brand: 'Northstar',
     icon: Layers,

@@ -169,14 +169,19 @@ The standalone build emits `dist-lib/index.js`, `dist-lib/styles.css`, and decla
 - `/#template/pickup` — arrivals, shelf assignment, and verified parcel collection
 - `/#template/support` — customer inbox, internal notes, assignment, and linked orders
 - `/#template/billing` — invoices, payment recording, bulk actions, and CSV exports
+- `/#template/banking` — personal banking overview, balances, cash flow, and spending breakdown
+- `/#template/banking-accounts` — checking and savings accounts with masked account details
+- `/#template/banking-transactions` — searchable activity, account/status filters, details, and CSV export
+- `/#template/banking-transfers` — validated internal transfers, review, receipts, and shared balances
+- `/#template/banking-cards` — physical/virtual cards, freeze controls, online payments, and spending limits
 
 Search with **⌘K / Ctrl+K**. Themes persist locally. Hash routes work on static hosts without rewrite configuration.
 
 ## Templates
 
-The nine template pages are implemented in `src/templates/`. Use the **Templates** navigation item to browse them by category, or load a route directly. Each page has a **View source** action that loads the actual source file for inspection and copying. All page implementations and their data providers are lazy-loaded independently of the gallery.
+The fourteen template pages are implemented in `src/templates/`. Use the **Templates** navigation item to browse them by category, or load a route directly. Each page has a **View source** action that loads the actual source file for inspection and copying. All page implementations and their data providers are lazy-loaded independently of the gallery.
 
-The productivity pages share `WorkspaceProvider` from `src/templates/store.tsx`, persisted under the browser-local key `vagabond-template-workspace-v1`. Both template providers use a common transactional store that writes before an update returns. If storage is unavailable they work for the current session. Explicit Zod schemas validate stored data; invalid records fall back to the sample workspace. Install `zod` when copying the templates; the UI primitives do not require it.
+The productivity pages share `WorkspaceProvider` from `src/templates/store.tsx`, persisted under the browser-local key `vagabond-template-workspace-v1`. All template providers use a common transactional store that writes before an update returns. If storage is unavailable they work for the current session. Explicit Zod schemas validate stored data; invalid records fall back to the sample workspace. Install `zod` when copying the templates; the UI primitives do not require it.
 
 - **Dashboard:** chart period selection, animated chart paths, CSV download, task completion, and task creation/editing.
 - **Task workspace:** board/list layouts, search/status filters, card movement, edit sheet, delete and undo.
@@ -191,6 +196,14 @@ The productivity pages share `WorkspaceProvider` from `src/templates/store.tsx`,
 The six business pages share `BusinessProvider` in `src/templates/business/store.tsx`, using the separate key `vagabond-business-templates-v1`. Sorting and pickup share parcel states; support tickets link to those same parcels. HR directory, onboarding, and leave views share employee data. The schema is checked before loading stored data; invalid data falls back to the fixtures.
 
 Analytics and business records are sample data. Invitations/replies do not send email; payment recording does not charge money; collection codes validate against local fixtures. No backend is required. Reuse the template, its relative imports, shared provider, styles, and referenced library components when adopting it.
+
+### Meridian banking suite
+
+Five connected pages live in `src/templates/banking/`, wrapped by `BankingTemplate.tsx`. They share `BankingProvider` and the separate local-storage key `vagabond-banking-template-v1`. The overview shows September 2026 sample cash flow and current available balances; internal transfers are excluded from income and spending.
+
+Transfers use integer cents, check the latest available balance, require a review step, and atomically update both accounts and both ledger entries. Repeated confirmations cannot duplicate a transfer. Card freeze/online-payment controls and validated monthly limits persist across pages and reloads. Transaction exports respect the active search, account, and status filters.
+
+All accounts and cards are fixtures with masked numbers. Available balances already include pending holds. Transfers and card controls simulate local state only. To reuse the suite, copy `banking/`, its shared `persistent-store.ts` and `csv.ts` dependencies, the referenced UI components, and the template frame/styles; adapt hash links to your router. Clear `vagabond-banking-template-v1` from browser storage and reload to restore the sample data.
 
 ## Motion in the UI
 
@@ -241,6 +254,7 @@ Tests cover:
 - HR hiring, onboarding, leave approval/decline, and persistence
 - End-to-end parcel processing, invalid scans/codes, exception resolution, and bulk dispatch
 - Support notes/replies and linked parcels; invoice draft-to-paid flows and exports
+- Banking transfer validation, balance conservation, review/confirmation, persistence, filtered exports, card controls, and all five responsive routes
 
 Unit tests additionally cover persistence failure/recovery, schemas, route resolution, parcel commands, and CSV serialization. Run `pnpm format` after editing and `pnpm check` before submitting changes.
 
