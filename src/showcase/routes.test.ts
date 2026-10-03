@@ -34,4 +34,19 @@ describe('hash routing', () => {
     expect(resolveRoute('#templates').kind).toBe('templates')
     expect(resolveRoute('#research').section).toBeNull()
   })
+  it('groups banking sections and legacy URLs under one app', () => {
+    expect(templateCatalog.filter((template) => template.suite === 'banking')).toHaveLength(1)
+    for (const page of ['accounts', 'transactions', 'transfers', 'cards']) {
+      for (const hash of [`#template/banking/${page}`, `#template/banking-${page}`]) {
+        expect(resolveRoute(hash)).toMatchObject({
+          kind: 'template',
+          id: `template/banking/${page}`,
+          bankPage: page,
+          template: { id: 'banking', name: 'Bank app' },
+          section: 'templates',
+        })
+      }
+    }
+    expect(resolveRoute('#template/banking/unknown').kind).toBe('overview')
+  })
 })

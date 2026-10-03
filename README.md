@@ -1,6 +1,6 @@
 # Vagabond UI
 
-35 React component families, fourteen interactive application pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
+35 React component families, ten application templates with fourteen interactive pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
 
 **[Live showcase](https://gilvex.github.io/vagabondui/) · [Templates](https://gilvex.github.io/vagabondui/#templates) · [Design preview](https://gilvex.github.io/vagabondui/#design-preview)**
 
@@ -137,17 +137,21 @@ Select Tree supports searchable hierarchies, selectable groups, optional icons, 
 | `/#template/pickup`               | Arrivals, shelf assignment, verified collection          |
 | `/#template/support`              | Replies, internal notes, ownership, linked orders        |
 | `/#template/billing`              | Drafts, payment records, invoice details, exports        |
-| `/#template/banking`              | Personal banking overview, balances, cash flow, spending |
-| `/#template/banking-accounts`     | Checking/savings accounts and masked account details     |
-| `/#template/banking-transactions` | Search, account/status filters, details, CSV export      |
-| `/#template/banking-transfers`    | Validated transfers, review, receipts, shared balances   |
-| `/#template/banking-cards`        | Physical/virtual cards, freeze controls, monthly limits  |
+| `/#template/banking`              | Bank app: overview, accounts, activity, transfers, cards |
+| `/#template/banking/accounts`     | Checking/savings accounts and masked account details     |
+| `/#template/banking/transactions` | Search, account/status filters, details, CSV export      |
+| `/#template/banking/transfers`    | Validated transfers, review, receipts, shared balances   |
+| `/#template/banking/cards`        | Physical/virtual cards, freeze controls, monthly limits  |
 
 Templates are application examples in the repository, not part of the npm tarball. They use public library imports and browser-local sample data. Sorting/pickup/support share parcel records. Invitations and replies do not send email; payment recording does not charge money. [Template guide](docs/templates.md).
 
-### Meridian banking suite
+### Bank app · Meridian
 
 Five connected pages live in `src/templates/banking/`, wrapped by `BankingTemplate.tsx`. They share `BankingProvider` and the separate local-storage key `vagabond-banking-template-v1`. The overview shows September 2026 sample cash flow and current available balances; internal transfers are excluded from income and spending.
+
+The gallery and search expose a single **Bank app** entry. Its internal routes support refresh and browser history; the old `banking-accounts`, `banking-transactions`, `banking-transfers`, and `banking-cards` links still work. Desktop uses a sidebar and spacious control panels. Mobile uses a five-item bottom navigation, swipeable account summaries, and activity lists instead of wide tables.
+
+Card illustrations cap at **336px wide** with a **1.586:1** credit-card aspect ratio. They shrink only when space is constrained and never stretch to fill a desktop panel. Forest brushed and graphite satin finishes use CSS textures; the gold chip is an inline SVG with engraved contacts and metallic highlights. The layout takes inspiration from card-first mobile banking patterns, while keeping Meridian branding and the shared theme tokens.
 
 Transfers use integer cents, check the latest available balance, require a review step, and atomically update both accounts and both ledger entries. Repeated confirmations cannot duplicate a transfer. Card freeze/online-payment controls and validated monthly limits persist across pages and reloads. Transaction exports respect the active search, account, and status filters.
 

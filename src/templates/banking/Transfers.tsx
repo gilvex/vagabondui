@@ -139,7 +139,7 @@ export default function Transfers() {
                 Your account balances and transaction history are updated.
               </p>
               <Button variant="outline" asChild>
-                <a href="#template/banking-transactions">View transactions</a>
+                <a href="#template/banking/transactions">View transactions</a>
               </Button>
             </Card>
           )}

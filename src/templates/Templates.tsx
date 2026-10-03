@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import type { TemplateDefinition } from './catalog'
+import type { BankPage } from './banking/navigation'
 import { TemplateIndex } from './TemplateIndex'
 import './templates.css'
 import './thumbnails.css'
@@ -8,7 +9,13 @@ const WorkspaceTemplate = lazy(() => import('./WorkspaceTemplate'))
 const BusinessTemplate = lazy(() => import('./BusinessTemplate'))
 const BankingTemplate = lazy(() => import('./BankingTemplate'))
 
-export function Templates({ template }: { template?: TemplateDefinition }) {
+export function Templates({
+  template,
+  bankPage,
+}: {
+  template?: TemplateDefinition
+  bankPage?: BankPage
+}) {
   if (!template) return <TemplateIndex />
   const View =
     template.suite === 'banking'
@@ -24,7 +31,7 @@ export function Templates({ template }: { template?: TemplateDefinition }) {
         </p>
       }
     >
-      <View template={template} />
+      <View template={template} bankPage={bankPage} />
     </Suspense>
   )
 }

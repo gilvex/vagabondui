@@ -1,4 +1,45 @@
 /* Gallery previews are static illustrations, independent of application state and styles. */
+.thumbnail-bank-app {
+  padding: 22px;
+}
+.thumbnail-bank-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 228px;
+  max-width: 100%;
+  aspect-ratio: 1.586;
+  padding: 18px;
+  margin-inline: auto;
+  border-radius: 14px;
+  border: 1px solid #658677;
+  color: #f4fff9;
+  background:
+    repeating-linear-gradient(0deg, #ffffff09 0, #ffffff09 1px, transparent 1px, transparent 3px),
+    linear-gradient(120deg, #133f34, #29594a 40%, #0c2923);
+  font-size: 14px;
+}
+.thumbnail-bank-card i {
+  width: 30px;
+  height: 23px;
+  border-radius: 5px;
+  border: 1px solid #84612f;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 7px, #84612f 7px, #84612f 8px),
+    linear-gradient(120deg, #f6e5aa, #ba9146, #f9e9b3);
+}
+.thumbnail-bank-navigation {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--muted);
+}
 .template-category-filter {
   margin: 0 0 28px;
 }

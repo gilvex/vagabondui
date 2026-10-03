@@ -1,5 +1,6 @@
 import { catalog, pages, type CatalogEntry, type DocPageId, type PageId } from './catalog'
 import { templateCatalog, type TemplateDefinition } from '../templates/catalog'
+import { resolveBankPage, type BankPage } from '../templates/banking/navigation'
 
 export type NavigationSection = 'components' | 'templates' | 'foundations' | 'installation' | null
 type RouteBase = { id: PageId; name: string; section: NavigationSection }
@@ -10,7 +11,7 @@ export type Route = RouteBase &
     | { kind: 'components' }
     | { kind: 'component'; component: CatalogEntry }
     | { kind: 'templates' }
-    | { kind: 'template'; template: TemplateDefinition }
+    | { kind: 'template'; template: TemplateDefinition; bankPage?: BankPage }
     | {
         kind: 'docs'
         page: Exclude<DocPageId, 'overview' | 'components' | 'templates' | 'design-preview'>
@@ -35,13 +36,20 @@ export function resolveRoute(hash: string): Route {
       component,
       section: 'components',
     }
-  const template = templateCatalog.find((item) => path === `template/${item.id}`)
+  const bankPage = resolveBankPage(path)
+  const template = templateCatalog.find((item) =>
+    bankPage ? item.id === 'banking' : path === `template/${item.id}`,
+  )
   if (template)
     return {
       kind: 'template',
-      id: `template/${template.id}`,
+      id:
+        bankPage && bankPage !== 'overview'
+          ? `template/banking/${bankPage}`
+          : `template/${template.id}`,
       name: template.name,
       template,
+      bankPage,
       section: 'templates',
     }
   const page = pages.find((item) => item.id === path)

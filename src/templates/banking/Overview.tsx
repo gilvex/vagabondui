@@ -1,4 +1,11 @@
-import { ArrowDownLeft, ArrowRight, ArrowUpRight, CreditCard, Wallet } from 'lucide-react'
+import {
+  ArrowDownLeft,
+  ArrowRight,
+  ArrowUpRight,
+  CreditCard,
+  Wallet,
+  ListFilter,
+} from 'lucide-react'
 import { Button } from 'vagabond-ui/button'
 import { Card } from 'vagabond-ui/card'
 import { BankHeading, TransactionTable } from './shared'
@@ -30,7 +37,7 @@ export default function Overview() {
         description="Welcome back, Alex. Make room for what matters."
       >
         <Button asChild>
-          <a href="#template/banking-transfers">
+          <a href="#template/banking/transfers">
             <ArrowUpRight size={16} /> Move money
           </a>
         </Button>
@@ -45,7 +52,7 @@ export default function Overview() {
           <p>Across {data.accounts.length} accounts · USD</p>
           <div className="bank-hero-bottom">
             <span>Your next chapter starts here.</span>
-            <a href="#template/banking-accounts" aria-label="View all accounts">
+            <a href="#template/banking/accounts" aria-label="View all accounts">
               <ArrowRight size={22} />
             </a>
           </div>
@@ -76,13 +83,33 @@ export default function Overview() {
           </p>
         </Card>
       </div>
+      <div className="bank-quick-actions" aria-label="Quick actions">
+        <a href="#template/banking/transfers">
+          <span>
+            <ArrowUpRight size={22} />
+          </span>
+          Move money
+        </a>
+        <a href="#template/banking/cards">
+          <span>
+            <CreditCard size={22} />
+          </span>
+          My cards
+        </a>
+        <a href="#template/banking/transactions">
+          <span>
+            <ListFilter size={22} />
+          </span>
+          Activity
+        </a>
+      </div>
       <div className="bank-section-heading bank-spaced">
         <h2>Your accounts</h2>
-        <a className="bank-link" href="#template/banking-accounts">
+        <a className="bank-link" href="#template/banking/accounts">
           View accounts <ArrowRight size={16} />
         </a>
       </div>
-      <div className="bank-account-grid">
+      <div className="bank-account-grid bank-account-strip">
         {data.accounts.map((account) => (
           <Card key={account.id} className="bank-account-summary">
             <div className="bank-section-heading">
@@ -124,7 +151,7 @@ export default function Overview() {
             Freeze a card in a tap, manage online payments, and keep your monthly budget in sight.
           </p>
           <Button variant="outline" asChild>
-            <a href="#template/banking-cards">
+            <a href="#template/banking/cards">
               Manage your cards <ArrowRight size={16} />
             </a>
           </Button>
@@ -136,7 +163,7 @@ export default function Overview() {
       <Card className="bank-panel bank-spaced">
         <div className="bank-section-heading">
           <h2>Recent activity</h2>
-          <a href="#template/banking-transactions" className="bank-link">
+          <a href="#template/banking/transactions" className="bank-link">
             View all <ArrowRight size={16} />
           </a>
         </div>

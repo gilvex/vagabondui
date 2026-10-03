@@ -9,23 +9,7 @@ type TemplateModule = {
 export const templateModules = {
   banking: {
     Component: lazy(() => import('./banking/Overview')),
-    loadSource: () => import('./banking/Overview.tsx?raw'),
-  },
-  'banking-accounts': {
-    Component: lazy(() => import('./banking/Accounts')),
-    loadSource: () => import('./banking/Accounts.tsx?raw'),
-  },
-  'banking-transactions': {
-    Component: lazy(() => import('./banking/Transactions')),
-    loadSource: () => import('./banking/Transactions.tsx?raw'),
-  },
-  'banking-transfers': {
-    Component: lazy(() => import('./banking/Transfers')),
-    loadSource: () => import('./banking/Transfers.tsx?raw'),
-  },
-  'banking-cards': {
-    Component: lazy(() => import('./banking/Cards')),
-    loadSource: () => import('./banking/Cards.tsx?raw'),
+    loadSource: () => import('./BankingTemplate.tsx?raw'),
   },
   dashboard: {
     Component: lazy(() => import('./Dashboard')),

@@ -23,7 +23,7 @@ export function RouteContent({ route }: { route: Route }) {
     case 'templates':
       return <Templates />
     case 'template':
-      return <Templates template={route.template} />
+      return <Templates template={route.template} bankPage={route.bankPage} />
     case 'docs':
       return <Docs key={route.id} page={route.page} />
   }

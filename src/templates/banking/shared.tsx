@@ -65,49 +65,76 @@ export function TransactionTable({ transactions }: { transactions: BankTransacti
   const accountName = (id: string) => data.accounts.find((account) => account.id === id)?.name ?? id
   return (
     <>
-      <Table aria-label="Account transactions">
-        <TableHeader>
-          <TableRow>
-            <TableHead>Description</TableHead>
-            <TableHead>Account</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {transactions.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell>
-                <div className="bank-transaction-name">
-                  <span className="bank-icon" aria-hidden="true">
-                    {item.amount > 0 ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
-                  </span>
-                  <div>
-                    <button className="bank-text-button" onClick={() => setSelected(item)}>
-                      {item.description}
-                    </button>
-                    <p className="bank-muted">{item.category}</p>
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell>{accountName(item.accountId)}</TableCell>
-              <TableCell className="whitespace-nowrap">{bankDate(item.date)}</TableCell>
-              <TableCell>
-                <Badge tone={item.status === 'Completed' ? 'success' : 'warning'}>
-                  {item.status}
-                </Badge>
-              </TableCell>
-              <TableCell
-                className={`text-right whitespace-nowrap font-medium ${item.amount > 0 ? 'text-success' : ''}`}
-              >
-                {item.amount > 0 ? '+' : '−'}
-                {money(Math.abs(item.amount))}
-              </TableCell>
+      <div className="bank-desktop-transactions">
+        <Table aria-label="Account transactions">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Description</TableHead>
+              <TableHead>Account</TableHead>
+              <TableHead>Date</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {transactions.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell>
+                  <div className="bank-transaction-name">
+                    <span className="bank-icon" aria-hidden="true">
+                      {item.amount > 0 ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
+                    </span>
+                    <div>
+                      <button className="bank-text-button" onClick={() => setSelected(item)}>
+                        {item.description}
+                      </button>
+                      <p className="bank-muted">{item.category}</p>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>{accountName(item.accountId)}</TableCell>
+                <TableCell className="whitespace-nowrap">{bankDate(item.date)}</TableCell>
+                <TableCell>
+                  <Badge tone={item.status === 'Completed' ? 'success' : 'warning'}>
+                    {item.status}
+                  </Badge>
+                </TableCell>
+                <TableCell
+                  className={`text-right whitespace-nowrap font-medium ${item.amount > 0 ? 'text-success' : ''}`}
+                >
+                  {item.amount > 0 ? '+' : '−'}
+                  {money(Math.abs(item.amount))}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+      <ul className="bank-mobile-transactions" aria-label="Account transactions">
+        {transactions.map((item) => (
+          <li key={item.id}>
+            <button onClick={() => setSelected(item)} className="bank-mobile-transaction">
+              <span className="bank-icon" aria-hidden="true">
+                {item.amount > 0 ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
+              </span>
+              <span className="bank-mobile-transaction-copy">
+                <strong>{item.description}</strong>
+                <span>
+                  {item.category} · {bankDate(item.date)}
+                </span>
+                <span>{accountName(item.accountId)}</span>
+              </span>
+              <span className="bank-mobile-transaction-amount">
+                <strong className={item.amount > 0 ? 'text-success' : ''}>
+                  {item.amount > 0 ? '+' : '−'}
+                  {money(Math.abs(item.amount))}
+                </strong>
+                <span>{item.status}</span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
       {transactions.length === 0 && (
         <p className="bank-empty" role="status">
           No transactions match your filters.
