@@ -1,4 +1,4 @@
-@import './lib/tokens.css';
+@import 'vagabond-ui/tailwind.css';
 @source './**/*.{ts,tsx}';
 
 /* Workbench layout. Component styling lives with each source-owned primitive. */

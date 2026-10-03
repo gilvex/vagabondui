@@ -1,0 +1,318 @@
+{
+  "name": "vagabond-ui",
+  "version": "0.2.0",
+  "description": "Accessible React components, semantic themes, and Motion interactions for product interfaces.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.js",
+  "types": "./dist/lib/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilvex/vagabondui.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://gilvex.github.io/vagabondui/",
+  "bugs": {
+    "url": "https://github.com/gilvex/vagabondui/issues"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "tailwindcss",
+    "radix",
+    "motion",
+    "accessible"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "vagabond-source": "./src/lib/index.ts",
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/index.js",
+      "default": "./dist/lib/index.js"
+    },
+    "./styles.css": {
+      "types": "./dist/styles.css.d.ts",
+      "default": "./dist/styles.css"
+    },
+    "./tailwind.css": {
+      "types": "./dist/styles.css.d.ts",
+      "default": "./src/lib/tokens.css"
+    },
+    "./package.json": "./package.json",
+    "./utils": {
+      "vagabond-source": "./src/lib/utils.ts",
+      "types": "./dist/lib/utils.d.ts",
+      "import": "./dist/lib/utils.js",
+      "default": "./dist/lib/utils.js"
+    },
+    "./brands": {
+      "vagabond-source": "./src/lib/brands.ts",
+      "types": "./dist/lib/brands.d.ts",
+      "import": "./dist/lib/brands.js",
+      "default": "./dist/lib/brands.js"
+    },
+    "./motion": {
+      "vagabond-source": "./src/lib/motion.tsx",
+      "types": "./dist/lib/motion.d.ts",
+      "import": "./dist/lib/motion.js",
+      "default": "./dist/lib/motion.js"
+    },
+    "./accordion": {
+      "vagabond-source": "./src/components/ui/accordion.tsx",
+      "types": "./dist/components/ui/accordion.d.ts",
+      "import": "./dist/components/ui/accordion.js",
+      "default": "./dist/components/ui/accordion.js"
+    },
+    "./alert": {
+      "vagabond-source": "./src/components/ui/alert.tsx",
+      "types": "./dist/components/ui/alert.d.ts",
+      "import": "./dist/components/ui/alert.js",
+      "default": "./dist/components/ui/alert.js"
+    },
+    "./alert-dialog": {
+      "vagabond-source": "./src/components/ui/alert-dialog.tsx",
+      "types": "./dist/components/ui/alert-dialog.d.ts",
+      "import": "./dist/components/ui/alert-dialog.js",
+      "default": "./dist/components/ui/alert-dialog.js"
+    },
+    "./avatar": {
+      "vagabond-source": "./src/components/ui/avatar.tsx",
+      "types": "./dist/components/ui/avatar.d.ts",
+      "import": "./dist/components/ui/avatar.js",
+      "default": "./dist/components/ui/avatar.js"
+    },
+    "./badge": {
+      "vagabond-source": "./src/components/ui/badge.tsx",
+      "types": "./dist/components/ui/badge.d.ts",
+      "import": "./dist/components/ui/badge.js",
+      "default": "./dist/components/ui/badge.js"
+    },
+    "./breadcrumb": {
+      "vagabond-source": "./src/components/ui/breadcrumb.tsx",
+      "types": "./dist/components/ui/breadcrumb.d.ts",
+      "import": "./dist/components/ui/breadcrumb.js",
+      "default": "./dist/components/ui/breadcrumb.js"
+    },
+    "./button": {
+      "vagabond-source": "./src/components/ui/button.tsx",
+      "types": "./dist/components/ui/button.d.ts",
+      "import": "./dist/components/ui/button.js",
+      "default": "./dist/components/ui/button.js"
+    },
+    "./card": {
+      "vagabond-source": "./src/components/ui/card.tsx",
+      "types": "./dist/components/ui/card.d.ts",
+      "import": "./dist/components/ui/card.js",
+      "default": "./dist/components/ui/card.js"
+    },
+    "./checkbox": {
+      "vagabond-source": "./src/components/ui/checkbox.tsx",
+      "types": "./dist/components/ui/checkbox.d.ts",
+      "import": "./dist/components/ui/checkbox.js",
+      "default": "./dist/components/ui/checkbox.js"
+    },
+    "./collapsible": {
+      "vagabond-source": "./src/components/ui/collapsible.tsx",
+      "types": "./dist/components/ui/collapsible.d.ts",
+      "import": "./dist/components/ui/collapsible.js",
+      "default": "./dist/components/ui/collapsible.js"
+    },
+    "./command": {
+      "vagabond-source": "./src/components/ui/command.tsx",
+      "types": "./dist/components/ui/command.d.ts",
+      "import": "./dist/components/ui/command.js",
+      "default": "./dist/components/ui/command.js"
+    },
+    "./dialog": {
+      "vagabond-source": "./src/components/ui/dialog.tsx",
+      "types": "./dist/components/ui/dialog.d.ts",
+      "import": "./dist/components/ui/dialog.js",
+      "default": "./dist/components/ui/dialog.js"
+    },
+    "./dropdown-menu": {
+      "vagabond-source": "./src/components/ui/dropdown-menu.tsx",
+      "types": "./dist/components/ui/dropdown-menu.d.ts",
+      "import": "./dist/components/ui/dropdown-menu.js",
+      "default": "./dist/components/ui/dropdown-menu.js"
+    },
+    "./field": {
+      "vagabond-source": "./src/components/ui/field.tsx",
+      "types": "./dist/components/ui/field.d.ts",
+      "import": "./dist/components/ui/field.js",
+      "default": "./dist/components/ui/field.js"
+    },
+    "./input": {
+      "vagabond-source": "./src/components/ui/input.tsx",
+      "types": "./dist/components/ui/input.d.ts",
+      "import": "./dist/components/ui/input.js",
+      "default": "./dist/components/ui/input.js"
+    },
+    "./label": {
+      "vagabond-source": "./src/components/ui/label.tsx",
+      "types": "./dist/components/ui/label.d.ts",
+      "import": "./dist/components/ui/label.js",
+      "default": "./dist/components/ui/label.js"
+    },
+    "./pagination": {
+      "vagabond-source": "./src/components/ui/pagination.tsx",
+      "types": "./dist/components/ui/pagination.d.ts",
+      "import": "./dist/components/ui/pagination.js",
+      "default": "./dist/components/ui/pagination.js"
+    },
+    "./popover": {
+      "vagabond-source": "./src/components/ui/popover.tsx",
+      "types": "./dist/components/ui/popover.d.ts",
+      "import": "./dist/components/ui/popover.js",
+      "default": "./dist/components/ui/popover.js"
+    },
+    "./progress": {
+      "vagabond-source": "./src/components/ui/progress.tsx",
+      "types": "./dist/components/ui/progress.d.ts",
+      "import": "./dist/components/ui/progress.js",
+      "default": "./dist/components/ui/progress.js"
+    },
+    "./radio-group": {
+      "vagabond-source": "./src/components/ui/radio-group.tsx",
+      "types": "./dist/components/ui/radio-group.d.ts",
+      "import": "./dist/components/ui/radio-group.js",
+      "default": "./dist/components/ui/radio-group.js"
+    },
+    "./scroll-area": {
+      "vagabond-source": "./src/components/ui/scroll-area.tsx",
+      "types": "./dist/components/ui/scroll-area.d.ts",
+      "import": "./dist/components/ui/scroll-area.js",
+      "default": "./dist/components/ui/scroll-area.js"
+    },
+    "./select": {
+      "vagabond-source": "./src/components/ui/select.tsx",
+      "types": "./dist/components/ui/select.d.ts",
+      "import": "./dist/components/ui/select.js",
+      "default": "./dist/components/ui/select.js"
+    },
+    "./select-tree": {
+      "vagabond-source": "./src/components/ui/select-tree.tsx",
+      "types": "./dist/components/ui/select-tree.d.ts",
+      "import": "./dist/components/ui/select-tree.js",
+      "default": "./dist/components/ui/select-tree.js"
+    },
+    "./separator": {
+      "vagabond-source": "./src/components/ui/separator.tsx",
+      "types": "./dist/components/ui/separator.d.ts",
+      "import": "./dist/components/ui/separator.js",
+      "default": "./dist/components/ui/separator.js"
+    },
+    "./sheet": {
+      "vagabond-source": "./src/components/ui/sheet.tsx",
+      "types": "./dist/components/ui/sheet.d.ts",
+      "import": "./dist/components/ui/sheet.js",
+      "default": "./dist/components/ui/sheet.js"
+    },
+    "./skeleton": {
+      "vagabond-source": "./src/components/ui/skeleton.tsx",
+      "types": "./dist/components/ui/skeleton.d.ts",
+      "import": "./dist/components/ui/skeleton.js",
+      "default": "./dist/components/ui/skeleton.js"
+    },
+    "./slider": {
+      "vagabond-source": "./src/components/ui/slider.tsx",
+      "types": "./dist/components/ui/slider.d.ts",
+      "import": "./dist/components/ui/slider.js",
+      "default": "./dist/components/ui/slider.js"
+    },
+    "./sonner": {
+      "vagabond-source": "./src/components/ui/sonner.tsx",
+      "types": "./dist/components/ui/sonner.d.ts",
+      "import": "./dist/components/ui/sonner.js",
+      "default": "./dist/components/ui/sonner.js"
+    },
+    "./switch": {
+      "vagabond-source": "./src/components/ui/switch.tsx",
+      "types": "./dist/components/ui/switch.d.ts",
+      "import": "./dist/components/ui/switch.js",
+      "default": "./dist/components/ui/switch.js"
+    },
+    "./table": {
+      "vagabond-source": "./src/components/ui/table.tsx",
+      "types": "./dist/components/ui/table.d.ts",
+      "import": "./dist/components/ui/table.js",
+      "default": "./dist/components/ui/table.js"
+    },
+    "./tabs": {
+      "vagabond-source": "./src/components/ui/tabs.tsx",
+      "types": "./dist/components/ui/tabs.d.ts",
+      "import": "./dist/components/ui/tabs.js",
+      "default": "./dist/components/ui/tabs.js"
+    },
+    "./textarea": {
+      "vagabond-source": "./src/components/ui/textarea.tsx",
+      "types": "./dist/components/ui/textarea.d.ts",
+      "import": "./dist/components/ui/textarea.js",
+      "default": "./dist/components/ui/textarea.js"
+    },
+    "./toggle": {
+      "vagabond-source": "./src/components/ui/toggle.tsx",
+      "types": "./dist/components/ui/toggle.d.ts",
+      "import": "./dist/components/ui/toggle.js",
+      "default": "./dist/components/ui/toggle.js"
+    },
+    "./toggle-group": {
+      "vagabond-source": "./src/components/ui/toggle-group.tsx",
+      "types": "./dist/components/ui/toggle-group.d.ts",
+      "import": "./dist/components/ui/toggle-group.js",
+      "default": "./dist/components/ui/toggle-group.js"
+    },
+    "./tooltip": {
+      "vagabond-source": "./src/components/ui/tooltip.tsx",
+      "types": "./dist/components/ui/tooltip.d.ts",
+      "import": "./dist/components/ui/tooltip.js",
+      "default": "./dist/components/ui/tooltip.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json && tailwindcss -i src/lib/tokens.css -o dist/styles.css --minify && node scripts/finalize.mjs",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.23.24",
+    "radix-ui": "^1.6.7",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.16",
+    "typescript": "~5.9.3"
+  }
+}

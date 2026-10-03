@@ -12,37 +12,18 @@ import {
   Users,
   X,
 } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import { Checkbox } from '../components/ui/checkbox'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from '../components/ui/dialog'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import { Progress } from '../components/ui/progress'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
-import { Textarea } from '../components/ui/textarea'
-import { toast } from '../components/ui/sonner'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'vagabond-ui/card'
+import { Checkbox } from 'vagabond-ui/checkbox'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 'vagabond-ui/dialog'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Progress } from 'vagabond-ui/progress'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
+import { Textarea } from 'vagabond-ui/textarea'
+import { toast } from 'vagabond-ui/sonner'
 import { departments, onboardingSteps, type LeaveRequest } from './business/data'
 import { useBusiness } from './business/store'
 import { AddEmployee, EmployeeProfile } from './business/EmployeeForms'

@@ -23,9 +23,17 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run test:unit
       - run: pnpm run build
-      - run: pnpm run build:lib
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test
+      - name: Verify the installable package
+        run: pnpm run test:package
+      - name: Upload tested npm package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-package
+          path: artifacts/
+          retention-days: 7
       - name: Build GitHub Pages showcase
         run: pnpm run build:pages
       - name: Test the production subpath build

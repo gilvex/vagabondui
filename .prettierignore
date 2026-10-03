@@ -1,7 +1,8 @@
 node_modules/
-dist/
+**/dist/
 dist-pages/
 dist-lib/
+artifacts/
 test-results/
 playwright-report/
 coverage/

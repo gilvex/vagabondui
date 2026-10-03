@@ -1,39 +1,21 @@
 import { useId, useRef, useState, type FormEvent } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Check, ChevronDown, Menu, Plus, Send, SlidersHorizontal } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from '../components/ui/dialog'
+import { Button } from 'vagabond-ui/button'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 'vagabond-ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '../components/ui/sheet'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
-import { Textarea } from '../components/ui/textarea'
-import { toast } from '../components/ui/sonner'
+} from 'vagabond-ui/dropdown-menu'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from 'vagabond-ui/sheet'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
+import { Textarea } from 'vagabond-ui/textarea'
+import { toast } from 'vagabond-ui/sonner'
 import { chatPeople, parcelLabels, type Ticket } from './business/data'
 import { ParcelDetails } from './business/ParcelControls'
 import { useBusiness } from './business/store'

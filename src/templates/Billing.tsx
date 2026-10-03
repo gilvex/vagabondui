@@ -1,45 +1,20 @@
 import { useId, useState, type FormEvent } from 'react'
 import { ArrowDownToLine, Check, CreditCard, MoreHorizontal, Plus, Send } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Checkbox } from '../components/ui/checkbox'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from '../components/ui/dialog'
+import { Button } from 'vagabond-ui/button'
+import { Checkbox } from 'vagabond-ui/checkbox'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 'vagabond-ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '../components/ui/sheet'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import { toast } from '../components/ui/sonner'
+} from 'vagabond-ui/dropdown-menu'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from 'vagabond-ui/sheet'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { toast } from 'vagabond-ui/sonner'
 import type { Invoice } from './business/data'
 import { useBusiness } from './business/store'
 import { invoiceSchema } from './business/schema'

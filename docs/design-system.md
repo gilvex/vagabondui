@@ -19,7 +19,7 @@ Inter is the interface font. JetBrains Mono is reserved for code and literal val
 
 ## Color
 
-Source of truth: `src/lib/tokens.css`.
+Source of truth: `packages/ui/src/lib/tokens.css`.
 
 | Token                 | Dark      | Light     |
 | --------------------- | --------- | --------- |
@@ -74,7 +74,7 @@ Notification actions use `shrink-0` and `whitespace-nowrap`; the content region 
 
 Select Tree is an opt-in experiment for hierarchical choices. Its dialog popup contains a single-select tree with explicit expansion and selection state. Parent labels group choices by default; selectable parents must be declared. The field preserves its value on Escape, integrates with native form validation/reset, and uses the same brand tokens and 14px text floor. See [the experiment notes](select-tree.md).
 
-- One component family per `src/components/ui/*.tsx` file.
+- One component family per `packages/ui/src/components/ui/*.tsx` file, exported by the `vagabond-ui` workspace package.
 - Named parts for composite components: e.g. Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter.
 - Native and primitive props are forwarded; React 19 refs pass through.
 - Components accept `className`, merged through `cn()`.

@@ -1,17 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { MapPin, Search } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'vagabond-ui/card'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
 import { pickupLocations } from './business/data'
 import { ParcelDetails, ParcelQueue } from './business/ParcelControls'
 import { findParcel } from './business/parcels'

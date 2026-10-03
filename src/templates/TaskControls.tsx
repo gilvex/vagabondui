@@ -1,24 +1,12 @@
 import { useId, useState, type FormEvent } from 'react'
 import { Plus } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Badge } from '../components/ui/badge'
-import { Avatar, AvatarFallback } from '../components/ui/avatar'
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
-} from '../components/ui/dialog'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
+import { Button } from 'vagabond-ui/button'
+import { Badge } from 'vagabond-ui/badge'
+import { Avatar, AvatarFallback } from 'vagabond-ui/avatar'
+import { Dialog, DialogContent, DialogTrigger, DialogFooter, DialogClose } from 'vagabond-ui/dialog'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
 import {
   Sheet,
   SheetContent,
@@ -27,9 +15,9 @@ import {
   SheetDescription,
   SheetFooter,
   SheetClose,
-} from '../components/ui/sheet'
-import { Textarea } from '../components/ui/textarea'
-import { toast } from '../components/ui/sonner'
+} from 'vagabond-ui/sheet'
+import { Textarea } from 'vagabond-ui/textarea'
+import { toast } from 'vagabond-ui/sonner'
 import { people, projects, statusLabels, type Priority, type Task, type TaskStatus } from './data'
 import { useWorkspace } from './store'
 

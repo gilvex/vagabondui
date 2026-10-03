@@ -10,31 +10,13 @@ import {
   GitBranch,
   ListTodo,
 } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
-import { Checkbox } from '../components/ui/checkbox'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '../components/ui/accordion'
-import { Reveal } from '../lib/motion'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from 'vagabond-ui/card'
+import { Checkbox } from 'vagabond-ui/checkbox'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'vagabond-ui/accordion'
+import { Reveal } from 'vagabond-ui/motion'
 import { useWorkspace } from './store'
 import { downloadCSV } from './csv'
 import { NewTaskDialog, Person, TaskDetails, TaskStatusBadge } from './TaskControls'

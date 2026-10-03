@@ -1,20 +1,14 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { ChevronRight } from 'lucide-react'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from './components/ui/sheet'
-import { Toaster } from './components/ui/sonner'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from 'vagabond-ui/sheet'
+import { Toaster } from 'vagabond-ui/sonner'
 import { PageErrorBoundary } from './showcase/PageErrorBoundary'
 import { RouteContent } from './showcase/RouteContent'
 import { Sidebar } from './showcase/Sidebar'
 import { SiteHeader } from './showcase/SiteHeader'
 import { useHashRoute } from './showcase/use-hash-route'
 import { useAppearance } from './showcase/appearance'
-import { version } from '../package.json'
+import { version } from 'vagabond-ui/package.json'
 
 const SearchDialog = lazy(() =>
   import('./showcase/SearchDialog').then((module) => ({ default: module.SearchDialog })),

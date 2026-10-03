@@ -1,20 +1,13 @@
 import { useId, useState } from 'react'
 import { ArrowRight, ArrowUpRight, Check, Copy, Moon, Send, Sun } from 'lucide-react'
-import { Badge } from '../components/ui/badge'
-import { Button } from '../components/ui/button'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import { Switch } from '../components/ui/switch'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import { ToggleGroup, ToggleGroupItem } from '../components/ui/toggle-group'
-import { brands, isColorMode, type BrandId } from '../lib/brands'
+import { Badge } from 'vagabond-ui/badge'
+import { Button } from 'vagabond-ui/button'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Switch } from 'vagabond-ui/switch'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { ToggleGroup, ToggleGroupItem } from 'vagabond-ui/toggle-group'
+import { brands, isColorMode, type BrandId } from 'vagabond-ui/brands'
 import { ActivityChart } from '../templates/Dashboard'
 import { useAppearance } from './appearance'
 import '../templates/templates.css'

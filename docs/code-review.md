@@ -24,8 +24,8 @@ The review prioritizes correctness and maintainability. Small fixture collection
 
 ## Ownership boundaries
 
-- `src/components/ui/`: reusable visual primitives, including internal overlay behavior.
-- `src/lib/`: public exports, tokens, class merging, and optional motion utilities.
+- `packages/ui/src/components/ui/`: reusable visual primitives, including internal overlay behavior.
+- `packages/ui/src/lib/`: public exports, tokens, class merging, and optional motion utilities.
 - `src/showcase/`: documentation, navigation, and interactive component demonstrations.
 - `src/templates/catalog.ts`: lightweight navigation metadata.
 - `src/templates/registry.ts`: lazy implementation/source loading.

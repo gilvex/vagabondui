@@ -18,7 +18,7 @@ import {
   Slider,
   Switch,
   Textarea,
-} from '../../lib'
+} from 'vagabond-ui'
 
 export function InputDemo() {
   const id = useId()

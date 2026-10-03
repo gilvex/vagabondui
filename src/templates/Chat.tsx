@@ -16,25 +16,19 @@ import {
   Users,
   X,
 } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Input } from '../components/ui/input'
-import { Textarea } from '../components/ui/textarea'
-import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover'
+import { Button } from 'vagabond-ui/button'
+import { Input } from 'vagabond-ui/input'
+import { Textarea } from 'vagabond-ui/textarea'
+import { Popover, PopoverContent, PopoverTrigger } from 'vagabond-ui/popover'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from '../components/ui/sheet'
-import { Tooltip } from '../components/ui/tooltip'
-import { toast } from '../components/ui/sonner'
+} from 'vagabond-ui/dropdown-menu'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from 'vagabond-ui/sheet'
+import { Tooltip } from 'vagabond-ui/tooltip'
+import { toast } from 'vagabond-ui/sonner'
 import { chatPeople, chatRooms, type ChatMessage } from './business/data'
 import { useBusiness } from './business/store'
 import { EmptyState, Initials } from './business/shared'

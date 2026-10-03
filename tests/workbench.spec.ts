@@ -49,7 +49,7 @@ test('gallery filtering, live states, source view and API', async ({ page }) => 
   await page.keyboard.press('Escape')
   await expect(page.getByRole('button', { name: 'View Input details' })).toBeFocused()
   await page.getByRole('button', { name: 'Show source code' }).click()
-  await expect(page.locator('.component-card pre').first()).toContainText('@/components/ui/input')
+  await expect(page.locator('.component-card pre').first()).toContainText('vagabond-ui/input')
   await page.getByRole('textbox', { name: 'Filter components by name' }).fill('doesnotexist')
   await expect(page.getByRole('heading', { name: 'No components found' })).toBeVisible()
 })
@@ -248,9 +248,7 @@ test('copyable direct imports and code previews', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
   await page.goto('/#component/button')
   await page.getByRole('button', { name: 'Copy code' }).first().click()
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(
-    '@/components/ui/button',
-  )
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('vagabond-ui/button')
   await page.goto('/#component/accordion')
   await page.getByRole('button', { name: 'Can I edit the source?' }).click()
   await expect(

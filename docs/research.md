@@ -22,7 +22,7 @@ The current workbench deliberately omits the previous geometric hero, grid artwo
 
 ## What follows shadcn conventions
 
-- Source-owned components in `src/components/ui/`.
+- Source-owned components in `packages/ui/src/components/ui/`, with npm and workspace exports.
 - One component family per file.
 - Composable named parts rather than a single heavily configured wrapper.
 - Direct imports, native props, `className` customization, and a shared `cn()` helper.

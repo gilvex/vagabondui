@@ -7,7 +7,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '../lib'
+} from 'vagabond-ui'
 import { catalog, pages } from './catalog'
 import { templateCatalog } from '../templates/catalog'
 

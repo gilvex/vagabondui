@@ -39,7 +39,7 @@ import {
   Switch,
   Tooltip,
   toast,
-} from '../../lib'
+} from 'vagabond-ui'
 
 export function DialogDemo() {
   const id = useId()

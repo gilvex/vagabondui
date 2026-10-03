@@ -9,14 +9,14 @@ import {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '../components/ui/alert-dialog'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import { Progress } from '../components/ui/progress'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
-import { toast } from '../components/ui/sonner'
+} from 'vagabond-ui/alert-dialog'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from 'vagabond-ui/card'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Progress } from 'vagabond-ui/progress'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
+import { toast } from 'vagabond-ui/sonner'
 import { useBusiness } from './business/store'
 import { sortingLanes } from './business/logistics'
 import { reduceParcel, findParcel } from './business/parcels'

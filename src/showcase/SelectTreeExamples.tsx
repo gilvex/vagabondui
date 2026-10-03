@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'vagabond-ui/card'
 import { ComponentDemo } from './Demos'
 import { SelectTreeBranchExample, SelectTreeFormExample } from './demos/select-tree'
 

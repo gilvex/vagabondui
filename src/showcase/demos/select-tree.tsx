@@ -1,8 +1,8 @@
 import { useId, useState, type FormEvent } from 'react'
 import { Check, Globe2, MapPin, RotateCcw } from 'lucide-react'
-import { Button } from '../../components/ui/button'
-import { Label } from '../../components/ui/label'
-import { SelectTree, type SelectTreeOption } from '../../components/ui/select-tree'
+import { Button } from 'vagabond-ui/button'
+import { Label } from 'vagabond-ui/label'
+import { SelectTree, type SelectTreeOption } from 'vagabond-ui/select-tree'
 
 export const destinationOptions: readonly SelectTreeOption[] = [
   {

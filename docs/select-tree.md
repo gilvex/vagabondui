@@ -16,7 +16,7 @@ Open `/#component/select-tree`. The existing Select page also links to a live co
 ## API
 
 ```tsx
-import { SelectTree, type SelectTreeOption } from '@/components/ui/select-tree'
+import { SelectTree, type SelectTreeOption } from 'vagabond-ui/select-tree'
 import { Globe2, MapPin } from 'lucide-react'
 
 const options: SelectTreeOption[] = [
@@ -78,10 +78,10 @@ The experiment follows the [APG combobox dialog-popup interaction](https://www.w
 
 ## Source
 
-- `src/components/ui/select-tree.tsx`: public form control and popup composition.
-- `src/components/ui/internal/use-select-tree.ts`: state, keyboard coordination, and native form reset.
-- `src/components/ui/internal/select-tree-model.ts`: indexing, path lookup, filtering, and traversal.
-- `src/components/ui/internal/select-tree-view.tsx`: nested tree rendering.
+- `packages/ui/src/components/ui/select-tree.tsx`: public form control and popup composition.
+- `packages/ui/src/components/ui/internal/use-select-tree.ts`: state, keyboard coordination, and native form reset.
+- `packages/ui/src/components/ui/internal/select-tree-model.ts`: indexing, path lookup, filtering, and traversal.
+- `packages/ui/src/components/ui/internal/select-tree-view.tsx`: nested tree rendering.
 - `src/showcase/demos/select-tree.tsx`: location and project-scope examples.
 
 The control uses existing Radix primitives and brand tokens. It keeps a 14px text floor and respects reduced-motion preferences. No additional dependency is required.

@@ -1,5 +1,5 @@
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
-import { Button } from '../components/ui/button'
+import { Button } from 'vagabond-ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,8 +9,8 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
-import { brands, isBrand } from '../lib/brands'
+} from 'vagabond-ui/dropdown-menu'
+import { brands, isBrand } from 'vagabond-ui/brands'
 import { useAppearance } from './appearance'
 
 export function AppearanceMenu() {

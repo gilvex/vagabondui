@@ -6,7 +6,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 export default defineConfig([
   globalIgnores([
-    'dist/**',
+    '**/dist/**',
+    'artifacts/**',
     'dist-pages/**',
     'dist-lib/**',
     'test-results/**',
@@ -24,7 +25,7 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   {
-    files: ['src/**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}', 'packages/*/src/**/*.{ts,tsx}'],
     plugins: { 'react-hooks': reactHooks },
     rules: {
       'react-hooks/rules-of-hooks': 'error',

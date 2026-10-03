@@ -1,6 +1,6 @@
 import { ArrowDownLeft, ArrowRight, ArrowUpRight, CreditCard, Wallet } from 'lucide-react'
-import { Button } from '../../components/ui/button'
-import { Card } from '../../components/ui/card'
+import { Button } from 'vagabond-ui/button'
+import { Card } from 'vagabond-ui/card'
 import { BankHeading, TransactionTable } from './shared'
 import { money } from './format'
 import { useBanking } from './store'

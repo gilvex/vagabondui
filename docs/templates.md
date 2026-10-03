@@ -2,22 +2,27 @@
 
 ## Routes and files
 
-| Route                  | Source                        | Demonstrates                                              |
-| ---------------------- | ----------------------------- | --------------------------------------------------------- |
-| `/#templates`          | `src/templates/Templates.tsx` | Template index and navigation                             |
-| `/#template/dashboard` | `src/templates/Dashboard.tsx` | Metrics, chart, task table, CSV download                  |
-| `/#template/projects`  | `src/templates/Projects.tsx`  | Board/list, filters, task movement, editing, undo         |
-| `/#template/settings`  | `src/templates/Settings.tsx`  | Validation, preferences, members, reset confirmation      |
-| `/#template/chat`      | `src/templates/Chat.tsx`      | Channels, DMs, threads, reactions, pins, editing          |
-| `/#template/hr`        | `src/templates/HR.tsx`        | Directory, employee profiles, leave approvals, onboarding |
-| `/#template/sorting`   | `src/templates/Sorting.tsx`   | Scanning, sorting lanes, manifests, exceptions            |
-| `/#template/pickup`    | `src/templates/Pickup.tsx`    | Receipt, shelf assignment, collection verification        |
-| `/#template/support`   | `src/templates/Support.tsx`   | Conversations, notes, assignment, linked orders           |
-| `/#template/billing`   | `src/templates/Billing.tsx`   | Drafts, receivables, payment records, invoice exports     |
+| Route                             | Source                                   | Demonstrates                                              |
+| --------------------------------- | ---------------------------------------- | --------------------------------------------------------- |
+| `/#templates`                     | `src/templates/Templates.tsx`            | Template index and navigation                             |
+| `/#template/dashboard`            | `src/templates/Dashboard.tsx`            | Metrics, chart, task table, CSV download                  |
+| `/#template/projects`             | `src/templates/Projects.tsx`             | Board/list, filters, task movement, editing, undo         |
+| `/#template/settings`             | `src/templates/Settings.tsx`             | Validation, preferences, members, reset confirmation      |
+| `/#template/chat`                 | `src/templates/Chat.tsx`                 | Channels, DMs, threads, reactions, pins, editing          |
+| `/#template/hr`                   | `src/templates/HR.tsx`                   | Directory, employee profiles, leave approvals, onboarding |
+| `/#template/sorting`              | `src/templates/Sorting.tsx`              | Scanning, sorting lanes, manifests, exceptions            |
+| `/#template/pickup`               | `src/templates/Pickup.tsx`               | Receipt, shelf assignment, collection verification        |
+| `/#template/support`              | `src/templates/Support.tsx`              | Conversations, notes, assignment, linked orders           |
+| `/#template/billing`              | `src/templates/Billing.tsx`              | Drafts, receivables, payment records, invoice exports     |
+| `/#template/banking`              | `src/templates/banking/Overview.tsx`     | Balances, cash flow, and spending overview                |
+| `/#template/banking-accounts`     | `src/templates/banking/Accounts.tsx`     | Account details and masked identifiers                    |
+| `/#template/banking-transactions` | `src/templates/banking/Transactions.tsx` | Activity filters, details, and exports                    |
+| `/#template/banking-transfers`    | `src/templates/banking/Transfers.tsx`    | Transfer validation, review, and receipts                 |
+| `/#template/banking-cards`        | `src/templates/banking/Cards.tsx`        | Freeze controls, payments, and spending limits            |
 
-`TaskControls.tsx` shares the new-task dialog, editing sheet, status badge, and assignee display. `templates.css` contains layout styles. Components use direct imports from `src/components/ui/`.
+`TaskControls.tsx` shares the new-task dialog, editing sheet, status badge, and assignee display. `templates.css` contains layout styles. Components use public `vagabond-ui/*` imports through the root application's `workspace:*` dependency.
 
-The business pages share data, forms, and styles under `src/templates/business/`. `EmployeeForms.tsx` supplies employee creation/profile editing. `ParcelControls.tsx` re-exports the separate queue and details components; `ParcelActionDialog.tsx` owns action input. `parcels.ts` implements pure commands and `use-parcel-command.ts` applies them atomically through the store. All nine page implementations are separately lazy-loaded.
+The business pages share data, forms, and styles under `src/templates/business/`. `EmployeeForms.tsx` supplies employee creation/profile editing. `ParcelControls.tsx` re-exports the separate queue and details components; `ParcelActionDialog.tsx` owns action input. `parcels.ts` implements pure commands and `use-parcel-command.ts` applies them atomically through the store. The banking suite has its own provider and models under `src/templates/banking/`. All fourteen page implementations are separately lazy-loaded.
 
 ## Data model
 
@@ -74,6 +79,6 @@ Dialogs retain fixed-grid centering and opacity-only entrances. Their geometry i
 
 ## Reuse
 
-Copy the template directory and referenced component files. Import `templates.css`, the system tokens, and the fonts of your choice. Mount the template within `WorkspaceProvider`, or replace `useWorkspace` with an application data layer while retaining the presentational components.
+Copy the template directory and install the UI package (tarball, workspace dependency, or a published version), along with the app-level Motion, Lucide, and Zod dependencies it imports. Import `templates.css`, `vagabond-ui/styles.css` or the Tailwind source entry, and the fonts of your choice. Mount the template within its workspace provider, or replace the sample data layer while retaining the presentational components. Application-specific Tailwind utilities require a Tailwind build step.
 
 The “View source” control dynamically loads the actual template source using Vite raw imports. Source is not fetched from a remote server.

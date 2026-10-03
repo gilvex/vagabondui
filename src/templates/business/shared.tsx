@@ -1,10 +1,10 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { Search } from 'lucide-react'
-import { Avatar, AvatarFallback } from '../../components/ui/avatar'
-import { Badge } from '../../components/ui/badge'
-import { Input } from '../../components/ui/input'
-import { Card, CardContent } from '../../components/ui/card'
-import { Reveal } from '../../lib/motion'
+import { Avatar, AvatarFallback } from 'vagabond-ui/avatar'
+import { Badge } from 'vagabond-ui/badge'
+import { Input } from 'vagabond-ui/input'
+import { Card, CardContent } from 'vagabond-ui/card'
+import { Reveal } from 'vagabond-ui/motion'
 
 export function Initials({
   name,

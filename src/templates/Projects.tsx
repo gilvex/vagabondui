@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from 'motion/react'
 import { CalendarDays, Circle, Columns3, List, MoreHorizontal, Search, Trash2 } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Badge } from '../components/ui/badge'
-import { Checkbox } from '../components/ui/checkbox'
+import { Button } from 'vagabond-ui/button'
+import { Badge } from 'vagabond-ui/badge'
+import { Checkbox } from 'vagabond-ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,26 +11,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
-import { Input } from '../components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import { toast } from '../components/ui/sonner'
-import { Reveal } from '../lib/motion'
+} from 'vagabond-ui/dropdown-menu'
+import { Input } from 'vagabond-ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { toast } from 'vagabond-ui/sonner'
+import { Reveal } from 'vagabond-ui/motion'
 import { statusLabels, type Task, type TaskStatus } from './data'
 import { useWorkspace } from './store'
 import { NewTaskDialog, Person, TaskDetails, TaskStatusBadge } from './TaskControls'

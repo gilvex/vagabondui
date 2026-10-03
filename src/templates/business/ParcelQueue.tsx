@@ -1,13 +1,6 @@
-import { Button } from '../../components/ui/button'
-import { Checkbox } from '../../components/ui/checkbox'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../../components/ui/table'
+import { Button } from 'vagabond-ui/button'
+import { Checkbox } from 'vagabond-ui/checkbox'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
 import { parcelLabels, type Parcel } from './data'
 import { EmptyState, StatusBadge } from './shared'
 import { formatDate } from '../format'

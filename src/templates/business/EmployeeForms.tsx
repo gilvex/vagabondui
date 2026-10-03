@@ -1,22 +1,10 @@
 import { useId, useState, type FormEvent } from 'react'
 import { Plus, UserRound } from 'lucide-react'
-import { Button } from '../../components/ui/button'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from '../../components/ui/dialog'
-import { Input } from '../../components/ui/input'
-import { Label } from '../../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../components/ui/select'
+import { Button } from 'vagabond-ui/button'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 'vagabond-ui/dialog'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
 import {
   Sheet,
   SheetClose,
@@ -25,8 +13,8 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '../../components/ui/sheet'
-import { toast } from '../../components/ui/sonner'
+} from 'vagabond-ui/sheet'
+import { toast } from 'vagabond-ui/sonner'
 import { departments, type Employee } from './data'
 import { useBusiness } from './store'
 import { employeeSchema } from './schema'

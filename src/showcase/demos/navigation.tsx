@@ -23,7 +23,7 @@ import {
   TabsList,
   TabsTrigger,
   toast,
-} from '../../lib'
+} from 'vagabond-ui'
 
 export function TabsDemo() {
   return (

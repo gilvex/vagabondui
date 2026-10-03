@@ -1,5 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react'
-import { Button } from '../components/ui/button'
+import { Button } from 'vagabond-ui/button'
 
 type Props = { children: ReactNode; resetKey: string }
 type State = { failed: boolean; resetKey: string }

@@ -35,7 +35,7 @@ import {
   Toggle,
   ToggleGroup,
   ToggleGroupItem,
-} from '../../lib'
+} from 'vagabond-ui'
 
 export function ButtonDemo() {
   const [saved, setSaved] = useState(false)

@@ -38,8 +38,8 @@ Status colors retain their meaning. The 14px text floor, keyboard behavior, redu
 
 ## Implementation
 
-- `src/lib/tokens.css`: component-safe brand tokens for dark and light modes.
-- `src/lib/brands.ts`: typed preset metadata.
+- `packages/ui/src/lib/tokens.css`: component-safe brand tokens for dark and light modes.
+- `packages/ui/src/lib/brands.ts`: typed preset metadata, exported as `vagabond-ui/brands`.
 - `src/showcase/appearance.tsx`: root-level appearance state and shareable preferences. Root attributes ensure Radix portals receive the same theme.
 - `src/showcase/DesignPreview.tsx`: interactive side-by-side specimens and template entry points.
 - `src/brand-preview.css`: opt-in refinements for the two branded directions.

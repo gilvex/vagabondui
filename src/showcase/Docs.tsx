@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { ArrowUpRight, Check, Copy, RotateCcw } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { Button, Card, CardContent, transitions } from '../lib'
+import { Button, Card, CardContent, transitions } from 'vagabond-ui'
 import type { DocPageId } from './catalog'
 import { CodeBlock } from './CodeBlock'
 import { useAppearance } from './appearance'
@@ -324,8 +324,9 @@ function Installation() {
   return (
     <>
       <Heading title="Installation">
-        Source-owned components for React 19 and Tailwind CSS 4. The library is not published to
-        npm.
+        Use Vagabond UI as an npm-compatible package or a workspace dependency. React 19 is
+        required. Registry publication is a separate release step; the tarball and workspace options
+        are ready now.
       </Heading>
       <Section title="Run this repository">
         <p>
@@ -337,54 +338,73 @@ function Installation() {
           code={'corepack enable\npnpm install --frozen-lockfile\npnpm dev'}
         />
       </Section>
-      <Section title="Copy the components">
+      <Section title="Install the package">
         <p>
-          Copy the component files you need from <code>src/components/ui/</code>, together with{' '}
-          <code>src/lib/utils.ts</code> and <code>src/lib/tokens.css</code>. The files use relative
-          imports internally, so preserve the same folder structure.
+          Until the first npm release, generate a tarball and install it in another React
+          application. After publication, the registry command uses the same package name and API.
+          React and React DOM are peers; implementation dependencies install automatically.
         </p>
         <CodeBlock
           label="Terminal"
           code={
-            'pnpm add radix-ui lucide-react class-variance-authority clsx tailwind-merge\n# Command, Toast, and animated Tabs/Switch utilities:\npnpm add cmdk sonner motion\n# Optional self-hosted fonts:\npnpm add @fontsource-variable/inter @fontsource-variable/jetbrains-mono'
+            '# From this repository:\npnpm package:pack\n\n# In a separate app, using the generated archive:\nnpm install /path/to/artifacts/vagabond-ui-0.2.0.tgz\n\n# After an npm registry release:\nnpm install vagabond-ui react@^19 react-dom@^19'
           }
         />
       </Section>
-      <Section title="Configure styles and imports">
+      <Section title="Use compiled styles">
         <p>
-          Add <code>@tailwindcss/vite</code> to your Vite plugins. Import the tokens through your
-          application stylesheet and declare its source directory. Configure <code>@/</code> to
-          resolve to <code>src/</code>, or replace the example aliases with your own relative
-          imports.
+          Import the stylesheet once. It includes component utilities, semantic themes, and a base
+          reset, so a Tailwind build step is optional. Fonts are supplied by your application.
         </p>
-        <CodeBlock label="src/styles.css" code={'@import "./lib/tokens.css";\n@source "./";'} />
         <CodeBlock
           code={
-            'import "@fontsource-variable/inter"\nimport "@fontsource-variable/jetbrains-mono"\nimport "./styles.css"\n\nimport { Button } from "@/components/ui/button"\n\nexport function SaveButton() {\n  return <Button onClick={() => console.log("Saved")}>Save changes</Button>\n}'
+            'import "vagabond-ui/styles.css"\nimport { Button } from "vagabond-ui/button"\n\nexport function SaveButton() {\n  return <Button onClick={() => console.log("Saved")}>Save changes</Button>\n}'
           }
         />
       </Section>
-      <Section title="Component structure">
+      <Section title="Tailwind CSS 4 integration">
+        <p>
+          For an application that already uses Tailwind, use the source stylesheet instead of the
+          precompiled one. Configure the Tailwind Vite plugin and declare your application source
+          directory.
+        </p>
+        <CodeBlock
+          label="src/styles.css"
+          code={'@import "vagabond-ui/tailwind.css";\n@source "./";'}
+        />
+      </Section>
+      <Section title="Workspace dependency">
+        <p>
+          The showcase consumes the UI package using the same dependency setup. The default exports
+          point to compiled modules; Vite development opts into a source condition for live updates.
+        </p>
+        <CodeBlock
+          label="package.json"
+          code={'{\n  "dependencies": {\n    "vagabond-ui": "workspace:*"\n  }\n}'}
+        />
         <CodeBlock
           label="Files"
           code={
-            'src/\n  components/\n    ui/\n      accordion.tsx\n      button.tsx\n      dialog.tsx\n      ...\n  lib/\n    utils.ts\n    tokens.css\n    index.ts       # Optional barrel export'
+            'packages/ui/\n  src/components/ui/   # Component source\n  src/lib/             # Tokens, helpers, exports\n  dist/                # Built ESM, types, and CSS\nsrc/                   # Showcase using workspace:*'
           }
         />
         <p>
-          Components expose composable parts such as <code>DialogHeader</code>,{' '}
-          <code>DialogTitle</code>, and <code>DialogFooter</code>. This follows shadcn’s
-          source-owned structure; it does not depend on shadcn’s CLI or registry.
+          Component subpaths such as <code>vagabond-ui/dialog</code> expose composable parts and
+          TypeScript declarations. The tarball also includes source files if you prefer to copy and
+          adapt a component.
         </p>
       </Section>
       <Section title="Build and test">
         <CodeBlock
           label="Terminal"
-          code={'pnpm build\npnpm build:lib\npnpm exec playwright install chromium\npnpm test'}
+          code={
+            'pnpm build:lib\npnpm exec playwright install chromium\npnpm check\n\n# Verify only the packed distribution:\npnpm test:package'
+          }
         />
         <p>
-          The library build emits ES modules, CSS, and declarations to <code>dist-lib/</code>.
-          Import its stylesheet explicitly when consuming the built output.
+          The library build writes to <code>packages/ui/dist/</code>. Package verification installs
+          the tarball with npm in an isolated application, type-checks its declarations, and tests
+          the production output in a browser.
         </p>
       </Section>
     </>
@@ -457,9 +477,9 @@ function Research() {
       </Section>
       <Section title="shadcn-style structure">
         <p>
-          Each family has a source file in <code>src/components/ui/</code>. Composite components
-          expose named parts. Examples use direct imports, and each component has a dedicated
-          documentation route.
+          Each family has a source file in <code>packages/ui/src/components/ui/</code>. Composite
+          components expose named parts. Examples use direct imports, and each component has a
+          dedicated documentation route.
         </p>
         <p>
           This is an independent library, not an official shadcn registry and not an Effect product.

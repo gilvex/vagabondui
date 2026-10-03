@@ -1,5 +1,5 @@
 import { Menu, Moon, Search, Sun } from 'lucide-react'
-import { Button } from '../components/ui/button'
+import { Button } from 'vagabond-ui/button'
 import type { NavigationSection } from './routes'
 import { AppearanceMenu } from './AppearanceMenu'
 

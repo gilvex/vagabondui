@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react'
-import { isBrand, isColorMode, type BrandId, type ColorMode } from '../lib/brands'
+import { isBrand, isColorMode, type BrandId, type ColorMode } from 'vagabond-ui/brands'
 
 type Appearance = { brand: BrandId; theme: ColorMode }
 type AppearanceContextValue = Appearance & {

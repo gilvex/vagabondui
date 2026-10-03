@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowRight, Code2, ExternalLink } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Reveal } from '../lib/motion'
+import { Button } from 'vagabond-ui/button'
+import { Reveal } from 'vagabond-ui/motion'
 import { templateCatalog } from './catalog'
 import { TemplateThumbnail } from './TemplateThumbnail'
 

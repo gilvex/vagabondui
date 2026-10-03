@@ -1,23 +1,11 @@
 import { useId, useState } from 'react'
 import { AlertTriangle, Check, MapPin, Package, Truck } from 'lucide-react'
-import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert'
-import { Button } from '../../components/ui/button'
-import { Label } from '../../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from '../../components/ui/sheet'
-import { toast } from '../../components/ui/sonner'
+import { Alert, AlertDescription, AlertTitle } from 'vagabond-ui/alert'
+import { Button } from 'vagabond-ui/button'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from 'vagabond-ui/sheet'
+import { toast } from 'vagabond-ui/sonner'
 import { parcelLabels } from './data'
 import { sortLanes, sortingLanes, storageShelves } from './logistics'
 import { useBusiness } from './store'

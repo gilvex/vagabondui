@@ -1,23 +1,10 @@
 import { useState, type ReactNode } from 'react'
 import { ArrowDownLeft, ArrowUpRight } from 'lucide-react'
-import { Badge } from '../../components/ui/badge'
-import { Button } from '../../components/ui/button'
-import { Dialog, DialogContent } from '../../components/ui/dialog'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../components/ui/select'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../../components/ui/table'
+import { Badge } from 'vagabond-ui/badge'
+import { Button } from 'vagabond-ui/button'
+import { Dialog, DialogContent } from 'vagabond-ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
 import type { BankTransaction } from './schema'
 import { useBanking } from './store'
 import { bankDate, money } from './format'

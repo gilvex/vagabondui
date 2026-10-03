@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { ArrowRight, Code2, Expand, Eye, Search } from 'lucide-react'
-import { Button, Dialog, DialogContent, Tabs, TabsContent, TabsList, TabsTrigger } from '../lib'
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from 'vagabond-ui'
 import { catalog, categories, type CatalogEntry, type Category } from './catalog'
 import { ComponentDemo, SearchEmpty } from './Demos'
 import { CodeBlock } from './CodeBlock'
@@ -52,7 +60,7 @@ export function ComponentPage({ entry }: { entry: CatalogEntry }) {
       </header>
       <div className="component-path">
         <Code2 size={16} />
-        <code>src/components/ui/{entry.file}.tsx</code>
+        <code>packages/ui/src/components/ui/{entry.file}.tsx</code>
       </div>
       <div className="preview-panel">
         <div className="preview-toolbar">

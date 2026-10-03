@@ -20,7 +20,7 @@ function entry<Id extends string>(
     description,
     detail: description,
     file,
-    code: `import { ${exports.join(', ')} } from "@/components/ui/${file}"\n\n${example}`,
+    code: `import { ${exports.join(', ')} } from "vagabond-ui/${file}"\n\n${example}`,
     props,
   }
 }

@@ -1,14 +1,29 @@
 # Vagabond UI
 
-35 source-owned React component families, including an experimental Select Tree, with live examples and per-component documentation. The visual tokens are inspired by [Effect’s website](https://effect.website/blog/releases/effect/40); the file structure and composable APIs follow [shadcn/ui conventions](https://ui.shadcn.com/docs/components).
+35 React component families, fourteen interactive application pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
 
-**React 19 · TypeScript · Tailwind CSS 4 · Radix · Motion**
+**[Live showcase](https://gilvex.github.io/vagabondui/) · [Templates](https://gilvex.github.io/vagabondui/#templates) · [Design preview](https://gilvex.github.io/vagabondui/#design-preview)**
 
-**[Live showcase](https://gilvex.github.io/vagabondui/) · [Browse templates](https://gilvex.github.io/vagabondui/#templates)**
+## Repository layout
+
+This is a pnpm workspace. The root application consumes the library through a real workspace dependency:
+
+```text
+packages/ui/              Publishable vagabond-ui package
+  src/components/ui/     Component implementations and internal behavior
+  src/lib/               Public exports, tokens, helpers, and motion
+  dist/                  Generated ESM, declarations/maps, and compiled CSS
+src/                     Showcase application and templates
+tests/                   Browser tests and the isolated consumer fixture
+scripts/                 Package verification and release helpers
+docs/                    Design, research, and integration guides
+```
+
+The showcase declares `"vagabond-ui": "workspace:*"`. It imports the public package API rather than maintaining another copy of the components.
 
 ## Run locally
 
-Requires Node.js 22.13+ (22.x) or 24+. Node 24 is used in CI. The repository pins **pnpm 10.34.6** through `packageManager` in `package.json`.
+Requires Node.js 22.13+ (22.x) or 24+. CI uses Node 24. pnpm **10.34.6** is pinned in `package.json`.
 
 ```sh
 corepack enable
@@ -16,30 +31,86 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open the address printed by Vite, normally `http://localhost:5173`.
+Vite normally serves `http://localhost:5173`. Development uses the package's opt-in source condition for live component updates. Production builds consume the compiled package.
 
 ```sh
-pnpm build       # Type-check and build the documentation app
-pnpm preview     # Preview the production app
-pnpm build:lib   # Build ES modules, CSS, and declarations
-pnpm check       # Run all quality gates, builds, and tests
+pnpm build:lib     # Build packages/ui/dist
+pnpm build         # Build the library and root-hosted showcase
+pnpm build:pages   # Build the library and /vagabondui/ Pages showcase
+pnpm preview       # Preview dist/
+pnpm preview:pages # Preview dist-pages/ on port 4174
+pnpm check         # Formatting, lint, unit/browser tests, builds, and package verification
 ```
 
-## Deployment
+## Install the library
 
-The showcase automatically deploys to **[GitHub Pages](https://gilvex.github.io/vagabondui/)** after a push to `main` passes the Verify workflow. Pull requests run the same checks, including production smoke tests, but do not publish. The workflow can also be started manually from GitHub Actions.
+**Package setup is complete; no npm registry release was performed as part of this setup.** You can install the generated tarball now. The package name is `vagabond-ui` and its current version is `0.2.0`.
 
-The Pages build uses `/vagabondui/` as its asset base and writes to `dist-pages/`. Only that static output is uploaded. The reusable library build remains separate in `dist-lib/`.
+### Install a local tarball with npm
 
 ```sh
-pnpm build:pages
-pnpm test:pages       # Smoke-test the actual built app, assets, and lazy routes
-pnpm preview:pages   # http://127.0.0.1:4174/vagabondui/
+# In this repository:
+pnpm package:pack
+
+# In a separate React application; adjust the path to this checkout:
+npm install /path/to/vagabondui/artifacts/vagabond-ui-0.2.0.tgz
 ```
 
-Hash-based routes work directly on Pages, for example `/#template/chat`. Root-hosted services such as Vercel can still use `pnpm build` with `dist/` as their output directory. Pages is sufficient for this static showcase; Vercel is an option if per-PR preview deployments or server-side features become necessary.
+### Install from npm after publication
 
-The Pages smoke tests can also target a published deployment: set `SHOWCASE_URL` to its full URL (including the trailing slash), then run `pnpm test:pages`. In that mode no local server is started.
+```sh
+npm install vagabond-ui react@^19 react-dom@^19
+```
+
+React and React DOM are peers; implementation dependencies are installed automatically. The root application remains private and cannot accidentally be published as the UI package.
+
+```tsx
+import 'vagabond-ui/styles.css'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardTitle } from 'vagabond-ui/card'
+
+export function Example() {
+  return (
+    <Card>
+      <CardContent>
+        <CardTitle>Project settings</CardTitle>
+        <Button onClick={() => console.log('Saved')}>Save changes</Button>
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+Root imports such as `import { Button, SelectTree } from 'vagabond-ui'` work too. Every component has a typed subpath export, plus `utils`, `brands`, and `motion` helpers. The ESM package provides declarations and declaration maps for modern TypeScript resolution (`bundler` / `NodeNext`).
+
+### Workspace dependency
+
+Include `packages/ui` in a pnpm workspace and declare this dependency in the consuming application:
+
+```json
+{
+  "dependencies": {
+    "vagabond-ui": "workspace:*"
+  }
+}
+```
+
+Build with `pnpm --filter vagabond-ui build` before using the compiled exports. This repository demonstrates source-aware development and production package consumption. See [the packaging guide](docs/packaging.md) for both modes and npm-workspace guidance.
+
+### CSS and fonts
+
+Choose one CSS entry:
+
+- **`vagabond-ui/styles.css`** — precompiled utilities, semantic tokens, and base reset. No Tailwind build step is needed.
+- **`vagabond-ui/tailwind.css`** — source entry for a Tailwind CSS 4 application; scans the packaged component source.
+
+```css
+/* src/styles.css in a Tailwind CSS 4 app */
+@import 'vagabond-ui/tailwind.css';
+@source './';
+```
+
+Fonts are consumer-owned. The default preset uses Inter and JetBrains Mono; Gilvex/GilGil use Manrope, DM Sans, and IBM Plex Mono. The showcase self-hosts them with Fontsource. Without those fonts the component CSS uses its sans-serif/monospace fallbacks.
 
 ## Components
 
@@ -51,151 +122,28 @@ The Pages smoke tests can also target a published deployment: set `SHOWCASE_URL`
 | Feedback   | Alert, Alert Dialog, Dialog, Popover, Progress, Sheet, Skeleton, Toast, Tooltip           |
 | Navigation | Breadcrumb, Command, Pagination, Tabs                                                     |
 
-All 35 families are separately implemented and exported. Select Tree is an opt-in experiment for nested options; see [the experiment notes](docs/select-tree.md).
+Select Tree supports searchable hierarchies, selectable groups, optional icons, keyboard navigation, and native form behavior. [Experiment notes](docs/select-tree.md).
 
-## Source structure
+## Application templates
 
-```text
-src/
-  components/ui/       One file per component family
-    button.tsx
-    dialog.tsx
-    select.tsx
-    ...
-  lib/
-    utils.ts           cn(): clsx + tailwind-merge
-    tokens.css         Semantic themes and typography
-    motion.tsx         Optional animation utilities
-    index.ts           Optional barrel export
-  showcase/
-    demos/             Stateful examples grouped by purpose
-    catalog.ts         Component metadata, usage, and API notes
-    Gallery.tsx        Catalog and dedicated component pages
-    Docs.tsx           Foundation and installation guides
-  App.tsx              Navigation, theme, and search
-tests/                 Browser and accessibility regression tests
-docs/                  Research, design specification, and review notes
-```
+| Route                             | Features                                                 |
+| --------------------------------- | -------------------------------------------------------- |
+| `/#template/dashboard`            | Metrics, animated chart, CSV export, task overview       |
+| `/#template/projects`             | Board/list, filtering, editing, movement, delete/undo    |
+| `/#template/settings`             | Validation, notifications, members, reset                |
+| `/#template/chat`                 | Channels, DMs, threads, reactions, pins, message editing |
+| `/#template/hr`                   | Directory, profiles, leave approvals, onboarding         |
+| `/#template/sorting`              | Barcode lookup, lanes, bulk dispatch, exceptions         |
+| `/#template/pickup`               | Arrivals, shelf assignment, verified collection          |
+| `/#template/support`              | Replies, internal notes, ownership, linked orders        |
+| `/#template/billing`              | Drafts, payment records, invoice details, exports        |
+| `/#template/banking`              | Personal banking overview, balances, cash flow, spending |
+| `/#template/banking-accounts`     | Checking/savings accounts and masked account details     |
+| `/#template/banking-transactions` | Search, account/status filters, details, CSV export      |
+| `/#template/banking-transfers`    | Validated transfers, review, receipts, shared balances   |
+| `/#template/banking-cards`        | Physical/virtual cards, freeze controls, monthly limits  |
 
-Direct imports are the recommended pattern:
-
-```tsx
-import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-  DialogClose,
-} from '@/components/ui/dialog'
-
-export function ProjectDialog() {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Project settings</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Project settings</DialogTitle>
-          <DialogDescription>Update your project preferences.</DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button>Done</Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  )
-}
-```
-
-The `@/` alias points to `src/` in this repository. Components use relative internal imports, so copying `src/components/ui`, `src/lib/utils.ts`, and `src/lib/tokens.css` preserves their dependencies.
-
-## Use in another React application
-
-There is no published npm package or shadcn CLI registry. Copy the component files you need and install their dependencies:
-
-```sh
-pnpm add radix-ui lucide-react class-variance-authority clsx tailwind-merge
-# Motion is used by Tabs, Switch, and animation utilities.
-# cmdk and sonner power Command and Toast:
-pnpm add cmdk sonner motion
-```
-
-Configure Tailwind CSS 4 with `@tailwindcss/vite`. Create an application stylesheet that imports the tokens and declares your application sources. Tokens include Tailwind’s base reset; their own source discovery is limited to the library.
-
-```css
-/* src/styles.css */
-@import './lib/tokens.css';
-@source './';
-```
-
-```tsx
-import './styles.css'
-```
-
-For the bundled fonts:
-
-```sh
-pnpm add @fontsource-variable/inter @fontsource-variable/jetbrains-mono
-```
-
-```tsx
-import '@fontsource-variable/inter'
-import '@fontsource-variable/jetbrains-mono'
-```
-
-The standalone build emits `dist-lib/index.js`, `dist-lib/styles.css`, and declarations under `dist-lib/components/ui/` and `dist-lib/lib/`. Import the CSS explicitly when consuming the built module. React, Radix, cmdk, Sonner, Motion, and Lucide remain external dependencies.
-
-## Workbench
-
-- `/#components` — all components, filters, previews, and code
-- `/#component/dialog` — dedicated documentation; every family has a corresponding route
-- `/#installation` — setup instructions
-- `/#colors`, `/#typography`, `/#spacing`, `/#motion` — design foundations
-- `/#research` — reference notes
-- `/#templates` — template gallery
-- `/#template/dashboard` — metrics, animated chart, task overview, and CSV export
-- `/#template/projects` — searchable task board/list, editing, move/delete, and undo
-- `/#template/settings` — validated workspace settings, notifications, and members
-- `/#template/chat` — Discord-style channels, DMs, reactions, pins, and threads
-- `/#template/hr` — employee directory, profile editing, leave approvals, and onboarding
-- `/#template/sorting` — barcode lookup, lane assignment, bulk dispatch, and exceptions
-- `/#template/pickup` — arrivals, shelf assignment, and verified parcel collection
-- `/#template/support` — customer inbox, internal notes, assignment, and linked orders
-- `/#template/billing` — invoices, payment recording, bulk actions, and CSV exports
-- `/#template/banking` — personal banking overview, balances, cash flow, and spending breakdown
-- `/#template/banking-accounts` — checking and savings accounts with masked account details
-- `/#template/banking-transactions` — searchable activity, account/status filters, details, and CSV export
-- `/#template/banking-transfers` — validated internal transfers, review, receipts, and shared balances
-- `/#template/banking-cards` — physical/virtual cards, freeze controls, online payments, and spending limits
-
-Search with **⌘K / Ctrl+K**. Themes persist locally. Hash routes work on static hosts without rewrite configuration.
-
-## Templates
-
-The fourteen template pages are implemented in `src/templates/`. Use the **Templates** navigation item to browse them by category, or load a route directly. Each page has a **View source** action that loads the actual source file for inspection and copying. All page implementations and their data providers are lazy-loaded independently of the gallery.
-
-The productivity pages share `WorkspaceProvider` from `src/templates/store.tsx`, persisted under the browser-local key `vagabond-template-workspace-v1`. All template providers use a common transactional store that writes before an update returns. If storage is unavailable they work for the current session. Explicit Zod schemas validate stored data; invalid records fall back to the sample workspace. Install `zod` when copying the templates; the UI primitives do not require it.
-
-- **Dashboard:** chart period selection, animated chart paths, CSV download, task completion, and task creation/editing.
-- **Task workspace:** board/list layouts, search/status filters, card movement, edit sheet, delete and undo.
-- **Settings:** workspace validation, save/discard, notification switches, member invitations and roles, removal/undo, and reset-to-sample confirmation.
-- **Team chat:** channels and DMs, keyboard message composition, editing, deletion/undo, reactions, pinned-message filtering, threads, and mobile channel/member drawers.
-- **HR:** search, department filter, table/card directory, employee profiles, new hires, onboarding checklists, leave requests, approvals, and decline reasons.
-- **Sorting center:** scan/ID lookup, lane assignment, selection-based dispatch, exception reporting/resolution, tracking history, and queue export.
-- **Pickup point:** location-specific queues, inbound receipt, shelf assignment, parcel lookup, collection-code validation, and completed collections.
-- **Support inbox:** customer conversations, public replies, internal notes, saved replies, ownership, priority/status, new tickets, and linked parcel details.
-- **Billing:** draft creation, status filtering, bulk sent-state updates, payment references, invoice details, and CSV exports.
-
-The six business pages share `BusinessProvider` in `src/templates/business/store.tsx`, using the separate key `vagabond-business-templates-v1`. Sorting and pickup share parcel states; support tickets link to those same parcels. HR directory, onboarding, and leave views share employee data. The schema is checked before loading stored data; invalid data falls back to the fixtures.
-
-Analytics and business records are sample data. Invitations/replies do not send email; payment recording does not charge money; collection codes validate against local fixtures. No backend is required. Reuse the template, its relative imports, shared provider, styles, and referenced library components when adopting it.
+Templates are application examples in the repository, not part of the npm tarball. They use public library imports and browser-local sample data. Sorting/pickup/support share parcel records. Invitations and replies do not send email; payment recording does not charge money. [Template guide](docs/templates.md).
 
 ### Meridian banking suite
 
@@ -203,67 +151,42 @@ Five connected pages live in `src/templates/banking/`, wrapped by `BankingTempla
 
 Transfers use integer cents, check the latest available balance, require a review step, and atomically update both accounts and both ledger entries. Repeated confirmations cannot duplicate a transfer. Card freeze/online-payment controls and validated monthly limits persist across pages and reloads. Transaction exports respect the active search, account, and status filters.
 
-All accounts and cards are fixtures with masked numbers. Available balances already include pending holds. Transfers and card controls simulate local state only. To reuse the suite, copy `banking/`, its shared `persistent-store.ts` and `csv.ts` dependencies, the referenced UI components, and the template frame/styles; adapt hash links to your router. Clear `vagabond-banking-template-v1` from browser storage and reload to restore the sample data.
+All accounts and cards are fixtures with masked numbers. Available balances already include pending holds. Transfers and card controls simulate local state only. To reuse the suite, install the UI package and copy `banking/`, its shared `persistent-store.ts` and `csv.ts` dependencies, and the template frame/styles; adapt hash links to your router. Clear `vagabond-banking-template-v1` from browser storage and reload to restore the sample data.
 
-## Motion in the UI
+## Design and accessibility
 
-- Tabs: a shared-layout selection indicator and a short panel entrance.
-- Switches: spring-driven thumb movement.
-- Accordion: measured-height expansion and collapse.
-- Sheets: directional entrance/exit; menus: short scale/fade.
-- Templates: staggered cards, chart-path drawing, metric changes, task-card movement, and saved-state feedback.
-- Toasts: Sonner enter/exit behavior; action text is non-wrapping and non-shrinking.
+- 14px minimum text; 16px body copy and mobile input text.
+- Semantic light/dark tokens with neutral, Gilvex, and GilGil presets.
+- Stable dialog centering, keyboard focus management, and reduced-motion support.
+- Radix behavior for complex primitives; native HTML behavior for form controls.
 
-Dialog centering remains layout-only; dialogs fade without moving. CSS and Motion both respect reduced-motion preferences.
+Set `data-theme="light"` / `"dark"` and `data-brand="vagabond"` / `"gilvex"` / `"gilgil"` on the document root. See [the design specification](docs/design-system.md), [brand preview](docs/design-preview.md), and [source review](docs/code-review.md).
 
-## Design constraints
-
-The local design review adds three appearance presets: **Vagabond** (the original zinc/Inter baseline), **Gilvex** (olive/lime), and **GilGil** (obsidian/gold). Open `/#design-preview` to compare them, or use the appearance menu on any page. See [the preview guide](docs/design-preview.md) for review links, source palettes, and font setup.
-
-- **14px minimum** for all text: navigation, labels, helper text, code, tooltips, and metadata. Body text is 16px.
-- Inputs use 16px on mobile to avoid automatic browser zoom.
-- Dialog centering is CSS layout, independent of animation. Entrances use opacity only.
-- Native controls and Radix primitives supply keyboard patterns and focus management.
-- Composite components expose named parts and forward native/primitive props.
-- Every example demonstrates an interaction or a concrete rendering pattern.
-- Motion respects reduced-motion preferences.
-
-See [the specification](docs/design-system.md), [the interface review](docs/review.md), and [the source review](docs/code-review.md).
-
-## Tests
+## Verification and release
 
 ```sh
 pnpm exec playwright install chromium
 pnpm test:unit
 pnpm test
+pnpm test:package
 ```
 
-Tests cover:
+`test:package` builds and packs the library, inspects its exports and file list, and creates a temporary consumer **outside this repository**. It installs the tarball with npm, checks declarations with `skipLibCheck: false`, imports every JS entry, checks React peer identity, and exercises a production build in a browser using only the compiled package CSS.
 
-- Frame-by-frame modal centering with motion enabled, on desktop and mobile
-- Computed font sizes and page overflow across all component and guide routes at 1440px, 390px, and 320px
-- Keyboard search, select, radio group, checkbox, switch, and slider behavior
-- Validation, focus restoration, nested dialogs, confirmation, sheets, menus, and toasts
-- Clipboard content and pagination
-- axe checks on the complete catalog in both themes
-- Toast action geometry at 320px, 390px, and desktop widths
-- Template CRUD, persistence, CSV export, member management, and source loading
-- Template typography, overflow, and dark/light accessibility
-- Presence of UI animations and reduced-motion behavior
-- Chat threads, reactions, editing, direct-message isolation, and mobile navigation
-- HR hiring, onboarding, leave approval/decline, and persistence
-- End-to-end parcel processing, invalid scans/codes, exception resolution, and bulk dispatch
-- Support notes/replies and linked parcels; invoice draft-to-paid flows and exports
-- Banking transfer validation, balance conservation, review/confirmation, persistence, filtered exports, card controls, and all five responsive routes
+Browser and domain tests also cover banking transfer validation, balance conservation, review/confirmation, persistence, filtered exports, card controls, and all five responsive banking routes.
 
-Unit tests additionally cover persistence failure/recovery, schemas, route resolution, parcel commands, and CSV serialization. Run `pnpm format` after editing and `pnpm check` before submitting changes.
+The resulting tarball, file inventory, and consumer screenshot are written to ignored `artifacts/`. CI uploads them as `ui-package`. Component/browser screenshots are in `test-results/`.
 
-Commit `pnpm-lock.yaml` when changing dependencies with `pnpm add` or `pnpm update`. CI installs from that lockfile with `pnpm install --frozen-lockfile`. Dependency build scripts for esbuild and the optional macOS watcher are configured in `pnpm-workspace.yaml`.
+The manual **Publish UI package** workflow is prepared for npm trusted publishing. It is not triggered by normal pushes and requires npm-side publisher configuration. First-publication and OIDC setup instructions are in [docs/packaging.md](docs/packaging.md).
 
-Review screenshots are written to `test-results/`. GitHub Actions checks formatting and lint, runs unit tests, builds the app and library, runs browser tests, and uploads the results.
+## Showcase deployment
+
+Successful pushes to `main` deploy the showcase to [GitHub Pages](https://gilvex.github.io/vagabondui/). Pull requests run the checks without publishing. Pages uses `dist-pages/` and a `/vagabondui/` asset base; root-hosted services can use `dist/`.
+
+`pnpm test:pages` tests a Pages build locally. Set `SHOWCASE_URL` to a published URL with a trailing slash to run those smoke tests against that deployment.
 
 ## Attribution
 
-Independent implementation; not affiliated with Effect or shadcn. This catalog does not claim full parity with shadcn’s larger library. [Research notes](docs/research.md) describe the references and the Motion/GSAP decision.
+Independent implementation inspired by Effect's visual language and shadcn's source-owned conventions. Not affiliated with either project. [Research notes](docs/research.md).
 
 Code is [MIT licensed](LICENSE). Dependencies and fonts retain their respective licenses.

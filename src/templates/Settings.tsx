@@ -10,39 +10,20 @@ import {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '../components/ui/alert-dialog'
-import { Avatar, AvatarFallback } from '../components/ui/avatar'
-import { Badge } from '../components/ui/badge'
-import { Button } from '../components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from '../components/ui/dialog'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../components/ui/select'
-import { Switch } from '../components/ui/switch'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../components/ui/table'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
-import { toast } from '../components/ui/sonner'
-import { Reveal } from '../lib/motion'
+} from 'vagabond-ui/alert-dialog'
+import { Avatar, AvatarFallback } from 'vagabond-ui/avatar'
+import { Badge } from 'vagabond-ui/badge'
+import { Button } from 'vagabond-ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'vagabond-ui/card'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 'vagabond-ui/dialog'
+import { Input } from 'vagabond-ui/input'
+import { Label } from 'vagabond-ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'vagabond-ui/select'
+import { Switch } from 'vagabond-ui/switch'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'vagabond-ui/table'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
+import { toast } from 'vagabond-ui/sonner'
+import { Reveal } from 'vagabond-ui/motion'
 import {
   createWorkspace,
   defaultSettings,

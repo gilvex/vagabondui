@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Check, Copy } from 'lucide-react'
-import { Button } from '../lib'
+import { Button } from 'vagabond-ui'
 
 export function CodeBlock({ code, label = 'tsx' }: { code: string; label?: string }) {
   const [status, setStatus] = useState<'idle' | 'copied' | 'error'>('idle')
