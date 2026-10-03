@@ -163,7 +163,36 @@ function BillingPreview() {
     </div>
   )
 }
+function BankingPreview() {
+  return (
+    <div className="thumbnail-dashboard">
+      <div className="thumbnail-metrics">
+        <div>
+          <span>Available balance</span>
+          <strong>$30,095</strong>
+        </div>
+        <div>
+          <span>Accounts</span>
+          <strong>03</strong>
+        </div>
+      </div>
+      <div className="thumbnail-chart">
+        <p>Meridian · Your money, in focus</p>
+        <div>
+          {[36, 48, 42, 62, 68, 86, 96].map((height, index) => (
+            <i key={index} style={{ height: `${height}%` }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 const previews = {
+  banking: BankingPreview,
+  'banking-accounts': BankingPreview,
+  'banking-transactions': BankingPreview,
+  'banking-transfers': BankingPreview,
+  'banking-cards': BankingPreview,
   dashboard: DashboardPreview,
   projects: ProjectsPreview,
   settings: SettingsPreview,
@@ -181,7 +210,7 @@ export function TemplateThumbnail({ id }: { id: TemplateId }) {
     <div className="template-thumbnail" aria-hidden="true">
       <div className="thumbnail-nav">
         <span>
-          <Layers size={16} /> Northstar
+          <Layers size={16} /> {id.startsWith('banking') ? 'Meridian Bank' : 'Northstar'}
         </span>
         <span>Workspace</span>
       </div>

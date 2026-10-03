@@ -52,6 +52,11 @@ test('deployed hash routes and lazy-loaded template source work', async ({ page 
     ['template/sorting', 'Sorting center'],
     ['template/pickup', 'Pickup point'],
     ['template/support', 'Support inbox'],
+    ['template/banking', 'A clearer view of your money.'],
+    ['template/banking-accounts', 'Your accounts'],
+    ['template/banking-transactions', 'Transactions'],
+    ['template/banking-transfers', 'Move money'],
+    ['template/banking-cards', 'Your cards'],
     ['template/billing', 'Billing & invoices'],
   ]
 
