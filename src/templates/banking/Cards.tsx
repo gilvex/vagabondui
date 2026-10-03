@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Wifi, Landmark, LockKeyhole } from 'lucide-react'
-import { toast } from 'sonner'
+import { toast } from 'vagabond-ui/sonner'
 import { Badge } from 'vagabond-ui/badge'
 import { Button } from 'vagabond-ui/button'
 import { Card } from 'vagabond-ui/card'
