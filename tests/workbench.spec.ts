@@ -131,7 +131,7 @@ test('command search navigates to guides and individual component pages', async 
   await expect(page.getByRole('checkbox', { name: 'Accept terms and conditions' })).toBeVisible()
 })
 
-test('all 34 component pages and guides render readable text without runtime errors', async ({
+test('all component pages and guides render readable text without runtime errors', async ({
   page,
 }) => {
   test.setTimeout(120000)
@@ -169,7 +169,7 @@ test('full catalog passes accessibility checks in both themes and mobile navigat
 }) => {
   test.setTimeout(60000)
   await page.goto('/#components')
-  await expect(page.locator('.component-card')).toHaveCount(34)
+  await expect(page.locator('.component-card')).toHaveCount(catalog.length)
   const dark = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()
   expect(dark.violations).toEqual([])
   await page.getByRole('button', { name: 'Switch to light mode' }).click()

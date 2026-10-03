@@ -72,6 +72,15 @@ export const catalog = [
     'value?: string\ndefaultValue?: string\nonValueChange?: (value: string) => void\nname?: string\ndisabled?: boolean',
   ),
   entry(
+    'select-tree',
+    'Select Tree',
+    'Forms',
+    'Experimental hierarchical selection with expandable groups and search.',
+    ['SelectTree', 'type SelectTreeOption'],
+    'import { Globe2, MapPin } from "lucide-react"\n\nconst locations: SelectTreeOption[] = [\n  { value: "uk", label: "United Kingdom", icon: <Globe2 />, selectable: true, children: [\n    { value: "london", label: "London", icon: <MapPin />, selectable: true, children: [\n      { value: "central", label: "Central Station" },\n      { value: "harbor", label: "East Harbor" },\n    ] },\n  ] },\n]\n\n<SelectTree\n  label="Pickup destination"\n  options={locations}\n  defaultValue="central"\n  name="destination"\n  clearable\n/>',
+    'options: readonly SelectTreeOption[]\nlabel: string (accessible field name)\nvalue?: string\ndefaultValue?: string\nonValueChange?: (value: string) => void\nsearchable?: boolean (default true)\nclearable?: boolean (default false)\nrequired?: boolean\ndisabled?: boolean\nname?: string\nform?: string\ndefaultExpandedValues?: readonly string[]\nplaceholder?: string\nsearchPlaceholder?: string\nemptyMessage?: string\ncontentClassName?: string\n…native button props and ref\n\nSelectTreeOption: { value, label, icon?: ReactNode, description?, children?, disabled?, selectable? }\nIcons are optional and decorative; no folder icon is added by default.\nValues must be unique and non-empty. Branches group options by default.\nThe dialog popup contains a single-select tree; Escape preserves the value.',
+  ),
+  entry(
     'switch',
     'Switch',
     'Forms',

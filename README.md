@@ -1,6 +1,6 @@
 # Vagabond UI
 
-34 source-owned React component families, with live examples and per-component documentation. The visual tokens are inspired by [Effect’s website](https://effect.website/blog/releases/effect/40); the file structure and composable APIs follow [shadcn/ui conventions](https://ui.shadcn.com/docs/components).
+35 source-owned React component families, including an experimental Select Tree, with live examples and per-component documentation. The visual tokens are inspired by [Effect’s website](https://effect.website/blog/releases/effect/40); the file structure and composable APIs follow [shadcn/ui conventions](https://ui.shadcn.com/docs/components).
 
 **React 19 · TypeScript · Tailwind CSS 4 · Radix · Motion**
 
@@ -43,15 +43,15 @@ The Pages smoke tests can also target a published deployment: set `SHOWCASE_URL`
 
 ## Components
 
-| Category   | Families                                                                        |
-| ---------- | ------------------------------------------------------------------------------- |
-| Actions    | Button, Dropdown Menu, Toggle, Toggle Group                                     |
-| Forms      | Checkbox, Field, Input, Label, Radio Group, Select, Slider, Switch, Textarea    |
-| Display    | Accordion, Avatar, Badge, Card, Collapsible, Scroll Area, Separator, Table      |
-| Feedback   | Alert, Alert Dialog, Dialog, Popover, Progress, Sheet, Skeleton, Toast, Tooltip |
-| Navigation | Breadcrumb, Command, Pagination, Tabs                                           |
+| Category   | Families                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------------- |
+| Actions    | Button, Dropdown Menu, Toggle, Toggle Group                                               |
+| Forms      | Checkbox, Field, Input, Label, Radio Group, Select, Select Tree, Slider, Switch, Textarea |
+| Display    | Accordion, Avatar, Badge, Card, Collapsible, Scroll Area, Separator, Table                |
+| Feedback   | Alert, Alert Dialog, Dialog, Popover, Progress, Sheet, Skeleton, Toast, Tooltip           |
+| Navigation | Breadcrumb, Command, Pagination, Tabs                                                     |
 
-All 34 families are separately implemented and exported.
+All 35 families are separately implemented and exported. Select Tree is an opt-in experiment for nested options; see [the experiment notes](docs/select-tree.md).
 
 ## Source structure
 

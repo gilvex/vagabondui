@@ -29,7 +29,7 @@ The current workbench deliberately omits the previous geometric hero, grid artwo
 - A dedicated documentation route with preview, usage, and API notes for each family.
 - Radix behavior for keyboard navigation, state, and focus management.
 
-This is not a shadcn CLI registry and does not claim parity with the entire shadcn catalog. The 34-family catalog is implemented in this repository, not a set of placeholder entries.
+This is not a shadcn CLI registry and does not claim parity with the entire shadcn catalog. The component catalog is implemented in this repository, not a set of placeholder entries.
 
 ## Motion vs GSAP
 

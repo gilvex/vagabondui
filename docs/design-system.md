@@ -72,6 +72,8 @@ Notification actions use `shrink-0` and `whitespace-nowrap`; the content region 
 
 ## Component conventions
 
+Select Tree is an opt-in experiment for hierarchical choices. Its dialog popup contains a single-select tree with explicit expansion and selection state. Parent labels group choices by default; selectable parents must be declared. The field preserves its value on Escape, integrates with native form validation/reset, and uses the same brand tokens and 14px text floor. See [the experiment notes](select-tree.md).
+
 - One component family per `src/components/ui/*.tsx` file.
 - Named parts for composite components: e.g. Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter.
 - Native and primitive props are forwarded; React 19 refs pass through.

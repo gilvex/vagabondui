@@ -244,6 +244,30 @@
   }
 }
 @layer components {
+  .select-tree-content {
+    animation: backdrop-in 0.12s ease-out;
+  }
+  .select-tree-row {
+    cursor: pointer;
+    transition: background-color 0.12s ease-out;
+  }
+  .select-tree-node[data-active='true'] > .select-tree-row,
+  .select-tree-node > .select-tree-row:hover {
+    background: var(--surface-raised);
+  }
+  .select-tree-node[data-selected='true'] > .select-tree-row {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .select-tree-node:focus-visible > .select-tree-row {
+    box-shadow: inset 0 0 0 2px var(--ring);
+  }
+  .select-tree-node[data-disabled='true'] > .select-tree-row {
+    cursor: not-allowed;
+  }
+  .select-tree-footer > p {
+    overflow-wrap: anywhere;
+  }
   .dialog-overlay {
     animation: backdrop-in 0.16s ease-out;
   }

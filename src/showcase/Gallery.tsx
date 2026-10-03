@@ -4,6 +4,7 @@ import { Button, Dialog, DialogContent, Tabs, TabsContent, TabsList, TabsTrigger
 import { catalog, categories, type CatalogEntry, type Category } from './catalog'
 import { ComponentDemo, SearchEmpty } from './Demos'
 import { CodeBlock } from './CodeBlock'
+import { SelectTreeExamples, SelectTreeExperimentLink } from './SelectTreeExamples'
 
 export function ComponentDetail({
   entry,
@@ -64,6 +65,8 @@ export function ComponentPage({ entry }: { entry: CatalogEntry }) {
           <ComponentDemo id={entry.id} />
         </div>
       </div>
+      {entry.id === 'select-tree' && <SelectTreeExamples />}
+      {entry.id === 'select' && <SelectTreeExperimentLink />}
       <section className="doc-section">
         <h2>Usage</h2>
         <CodeBlock code={entry.code} />

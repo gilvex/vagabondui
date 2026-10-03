@@ -344,6 +344,16 @@ kbd {
   flex-direction: column;
   gap: 16px;
 }
+.tree-form-example {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tree-example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+}
 .component-description {
   display: flex;
   min-height: 92px;

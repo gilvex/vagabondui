@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react'
 import type { ComponentId } from './catalog'
+import { SelectTreeDemo } from './demos/select-tree'
 import {
   CheckboxDemo,
   FieldDemo,
@@ -46,6 +47,7 @@ const demos: Record<ComponentId, React.ComponentType> = {
   checkbox: CheckboxDemo,
   textarea: TextareaDemo,
   select: SelectDemo,
+  'select-tree': SelectTreeDemo,
   switch: SwitchDemo,
   'radio-group': RadioGroupDemo,
   slider: SliderDemo,

@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react'
 import { ArrowUpRight, Check, Copy, RotateCcw } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Button, Card, CardContent, transitions } from '../lib'
-import { catalog, type DocPageId } from './catalog'
+import type { DocPageId } from './catalog'
 import { CodeBlock } from './CodeBlock'
 import { useAppearance } from './appearance'
 
@@ -497,6 +497,16 @@ function Changelog() {
   return (
     <>
       <Heading title="Changelog">Changes to the component library and documentation.</Heading>
+      <Section title="Unreleased — Select Tree experiment">
+        <ul className="doc-list">
+          <li>Added an opt-in hierarchical picker with searchable branches and selected paths.</li>
+          <li>
+            Included keyboard navigation, disabled choices, selectable groups, and native form
+            integration.
+          </li>
+          <li>Added location and project-scope examples alongside the existing flat Select.</li>
+        </ul>
+      </Section>
       <Section title="Unreleased — Business applications">
         <ul className="doc-list">
           <li>
@@ -528,7 +538,7 @@ function Changelog() {
       </Section>
       <Section title="0.2.0 — Component expansion">
         <ul className="doc-list">
-          <li>Expanded the catalog from 10 to {catalog.length} component families.</li>
+          <li>Expanded the catalog from 10 to 34 component families.</li>
           <li>Moved components into individual files with composable APIs.</li>
           <li>Added dedicated documentation routes for every component.</li>
           <li>Fixed dialog entrance positioning by separating layout from animation.</li>
