@@ -2,6 +2,7 @@ import { Search } from 'lucide-react'
 import type { ComponentId } from './catalog'
 import { SelectTreeDemo } from './demos/select-tree'
 import { DrawerDemo, FridgeDemo } from './demos/drawers'
+import { ActionBarDemo } from './demos/action-bar'
 import {
   CheckboxDemo,
   FieldDemo,
@@ -44,6 +45,7 @@ export { RuntimePreview } from './demos/display'
 
 const demos: Record<ComponentId, React.ComponentType> = {
   button: ButtonDemo,
+  'action-bar': ActionBarDemo,
   input: InputDemo,
   checkbox: CheckboxDemo,
   textarea: TextareaDemo,

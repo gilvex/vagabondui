@@ -1,6 +1,6 @@
 # Vagabond UI
 
-37 React component families, ten application templates with fourteen interactive pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
+38 React component families, ten application templates with fourteen interactive pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
 
 **[Live showcase](https://gilvex.github.io/vagabondui/) · [Templates](https://gilvex.github.io/vagabondui/#templates) · [Design preview](https://gilvex.github.io/vagabondui/#design-preview) · [Changelog](https://gilvex.github.io/vagabondui/#changelog)**
 
@@ -44,7 +44,7 @@ pnpm check         # Formatting, lint, unit/browser tests, builds, and package v
 
 ## Install the library
 
-The package name is [`vagabond-ui`](https://www.npmjs.com/package/vagabond-ui). Version **0.3.0** adds Drawer and Fridge. See the [release notes](CHANGELOG.md) for details.
+The package name is [`vagabond-ui`](https://www.npmjs.com/package/vagabond-ui). Version **0.4.0** adds Action Bar for bulk actions and save/discard workflows. See the [release notes](CHANGELOG.md) for details.
 
 ### Install a local tarball with npm
 
@@ -53,13 +53,13 @@ The package name is [`vagabond-ui`](https://www.npmjs.com/package/vagabond-ui). 
 pnpm package:pack
 
 # In a separate React application; adjust the path to this checkout:
-npm install /path/to/vagabondui/artifacts/vagabond-ui-0.3.0.tgz
+npm install /path/to/vagabondui/artifacts/vagabond-ui-0.4.0.tgz
 ```
 
 ### Install from npm
 
 ```sh
-npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19
+npm install vagabond-ui@^0.4.0 react@^19 react-dom@^19
 ```
 
 React and React DOM are peers; implementation dependencies are installed automatically. The root application remains private and cannot accidentally be published as the UI package.
@@ -116,7 +116,7 @@ Fonts are consumer-owned. The default preset uses Inter and JetBrains Mono; Gilv
 
 | Category   | Families                                                                                        |
 | ---------- | ----------------------------------------------------------------------------------------------- |
-| Actions    | Button, Dropdown Menu, Toggle, Toggle Group                                                     |
+| Actions    | Action Bar, Button, Dropdown Menu, Toggle, Toggle Group                                         |
 | Forms      | Checkbox, Field, Input, Label, Radio Group, Select, Select Tree, Slider, Switch, Textarea       |
 | Display    | Accordion, Avatar, Badge, Card, Collapsible, Scroll Area, Separator, Table                      |
 | Feedback   | Alert, Alert Dialog, Dialog, Drawer, Fridge, Popover, Progress, Sheet, Skeleton, Toast, Tooltip |

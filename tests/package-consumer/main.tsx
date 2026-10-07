@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Button, Card, CardContent } from 'vagabond-ui'
 import {
@@ -13,6 +13,7 @@ import {
 } from 'vagabond-ui/dialog'
 import { SelectTree, type SelectTreeOption } from 'vagabond-ui/select-tree'
 import { Switch } from 'vagabond-ui/switch'
+import { ActionBar, ActionBarButton, ActionBarClose, ActionBarLabel } from 'vagabond-ui/action-bar'
 import {
   Drawer,
   DrawerTrigger,
@@ -50,6 +51,8 @@ const options: SelectTreeOption[] = [
 function App() {
   const [saved, setSaved] = useState(false)
   const [region, setRegion] = useState('')
+  const [actionsOpen, setActionsOpen] = useState(false)
+  const actionsTrigger = useRef<HTMLButtonElement>(null)
   return (
     <main style={{ maxWidth: 460, padding: 32 }}>
       <h1 style={{ fontSize: 24, marginBottom: 20 }}>Installed package test</h1>
@@ -117,6 +120,20 @@ function App() {
               </FridgeFooter>
             </FridgeContent>
           </Fridge>
+          <Button ref={actionsTrigger} onClick={() => setActionsOpen(true)}>
+            Show actions
+          </Button>
+          <ActionBar
+            label="Package actions"
+            open={actionsOpen}
+            onOpenChange={setActionsOpen}
+            returnFocusRef={actionsTrigger}
+          >
+            <ActionBarLabel>2 selected</ActionBarLabel>
+            <ActionBarButton>Apply actions</ActionBarButton>
+            <ActionBarButton disabled>Unavailable action</ActionBarButton>
+            <ActionBarClose />
+          </ActionBar>
         </CardContent>
       </Card>
     </main>

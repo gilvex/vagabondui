@@ -339,13 +339,13 @@ function Installation() {
       </Section>
       <Section title="Install the package">
         <p>
-          Install version 0.3.0 for Drawer, Fridge, and the full component catalog. React and React
-          DOM are peers; implementation dependencies install automatically.
+          Install version 0.4.0 for Action Bar and the full component catalog. React and React DOM
+          are peers; implementation dependencies install automatically.
         </p>
         <CodeBlock
           label="Terminal"
           code={
-            'npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19\n\n# Or test a local build from this repository:\npnpm package:pack\n\n# In a separate app, using the generated archive:\nnpm install /path/to/artifacts/vagabond-ui-0.3.0.tgz'
+            'npm install vagabond-ui@^0.4.0 react@^19 react-dom@^19\n\n# Or test a local build from this repository:\npnpm package:pack\n\n# In a separate app, using the generated archive:\nnpm install /path/to/artifacts/vagabond-ui-0.4.0.tgz'
           }
         />
       </Section>
@@ -515,6 +515,35 @@ function Changelog() {
   return (
     <>
       <Heading title="Changelog">Changes to the component library and documentation.</Heading>
+      <Section title="0.4.0 — Action Bar">
+        <p>
+          <time dateTime="2026-10-07">October 7, 2026</time> · 38 component families
+        </p>
+        <ul className="doc-list">
+          <li>
+            Added a bottom Action Bar with floating/docked styles and fixed, sticky, or inline
+            placement.
+          </li>
+          <li>
+            Included non-modal toolbar keyboard navigation, focus restoration, reduced motion, and
+            mobile safe-area spacing.
+          </li>
+          <li>
+            Added interactive file-selection and save/discard examples, with pattern references and
+            API documentation.
+          </li>
+          <li>
+            Added typed root and subpath exports, compiled styles, and composable label, group,
+            button, close, and separator parts.
+          </li>
+          <li>
+            Verified keyboard navigation, nested menus, disabled actions, focus restoration after
+            archiving all rows, all-brand light/dark accessibility, narrow layouts, and isolated
+            package consumption.
+          </li>
+        </ul>
+        <CodeBlock label="Update from npm" code="npm install vagabond-ui@^0.4.0" />
+      </Section>
       <Section title="0.3.0 — Drawer and Fridge">
         <p>
           <time dateTime="2026-10-07">October 7, 2026</time> · 37 component families

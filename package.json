@@ -1,6 +1,6 @@
 {
   "name": "vagabond-ui-showcase",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Source-owned React components with Radix primitives, Tailwind CSS, and Effect-inspired tokens.",
   "license": "MIT",
   "private": true,

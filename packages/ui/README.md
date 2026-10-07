@@ -1,17 +1,19 @@
 # Vagabond UI
 
-37 React component families, semantic light/dark themes, and Motion interactions.
+38 React component families, semantic light/dark themes, and Motion interactions.
+
+Action Bar provides floating or docked bottom actions, roving keyboard focus, and fixed/sticky/inline placement. Import its composable parts from `vagabond-ui/action-bar` or the root barrel. Try the bulk-selection and save/discard examples in the showcase.
 
 Drawer opens from the bottom; Fridge is its right-opening variant. Both provide handle-only drag dismissal, a scrollable body, a pinned footer, focus restoration, and reduced-motion support. Import from `vagabond-ui/drawer` or `vagabond-ui/fridge`, or use the root barrel. Compose Header, Title, Description, Body, and Footer inside Content for an accessible panel.
 
 [Live showcase](https://gilvex.github.io/vagabondui/) · [Source](https://github.com/gilvex/vagabondui) · [Documentation](https://gilvex.github.io/vagabondui/#installation) · [Changelog](https://gilvex.github.io/vagabondui/#changelog)
 
-Version **0.3.0** adds Drawer and Fridge, improves primary-button hover contrast, and refines overlay focus restoration.
+Version **0.4.0** adds Action Bar with mobile safe-area spacing, non-modal keyboard navigation, and focus restoration.
 
 ## Install from npm
 
 ```sh
-npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19
+npm install vagabond-ui@^0.4.0 react@^19 react-dom@^19
 ```
 
 React and React DOM are peers. Radix, Motion, icons, and the remaining implementation dependencies are installed automatically.
@@ -93,7 +95,7 @@ From the repository root:
 
 ```sh
 pnpm package:pack
-npm install ./artifacts/vagabond-ui-0.3.0.tgz
+npm install ./artifacts/vagabond-ui-0.4.0.tgz
 ```
 
 The archive contains compiled ES modules, declarations/maps, CSS, copyable component source, README, and license. It excludes showcase applications, sample business data, tests, and build scripts.

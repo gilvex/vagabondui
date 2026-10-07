@@ -1,6 +1,6 @@
 {
   "name": "vagabond-ui",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Accessible React components, semantic themes, and Motion interactions for product interfaces.",
   "license": "MIT",
   "type": "module",
@@ -76,6 +76,12 @@
       "types": "./dist/components/ui/accordion.d.ts",
       "import": "./dist/components/ui/accordion.js",
       "default": "./dist/components/ui/accordion.js"
+    },
+    "./action-bar": {
+      "vagabond-source": "./src/components/ui/action-bar.tsx",
+      "types": "./dist/components/ui/action-bar.d.ts",
+      "import": "./dist/components/ui/action-bar.js",
+      "default": "./dist/components/ui/action-bar.js"
     },
     "./alert": {
       "vagabond-source": "./src/components/ui/alert.tsx",

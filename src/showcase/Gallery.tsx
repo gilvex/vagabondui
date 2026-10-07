@@ -13,6 +13,8 @@ import { catalog, categories, type CatalogEntry, type Category } from './catalog
 import { ComponentDemo, SearchEmpty } from './Demos'
 import { CodeBlock } from './CodeBlock'
 import { SelectTreeExamples, SelectTreeExperimentLink } from './SelectTreeExamples'
+import { ActionBarExamples } from './ActionBarExamples'
+import { ActionBarDemo } from './demos/action-bar'
 
 export function ComponentDetail({
   entry,
@@ -52,7 +54,10 @@ export function ComponentDetail({
 export function ComponentPage({ entry }: { entry: CatalogEntry }) {
   const [expanded, setExpanded] = useState(false)
   return (
-    <div className="docs-page component-page">
+    <div
+      className="docs-page component-page"
+      style={entry.id === 'action-bar' ? { paddingBottom: 192 } : undefined}
+    >
       <header className="doc-heading">
         <p className="eyebrow">Components / {entry.category}</p>
         <h1>{entry.name}</h1>
@@ -70,10 +75,15 @@ export function ComponentPage({ entry }: { entry: CatalogEntry }) {
           </Button>
         </div>
         <div className="demo-stage expanded-preview">
-          <ComponentDemo id={entry.id} />
+          {entry.id === 'action-bar' ? (
+            <ActionBarDemo allowViewport />
+          ) : (
+            <ComponentDemo id={entry.id} />
+          )}
         </div>
       </div>
       {entry.id === 'select-tree' && <SelectTreeExamples />}
+      {entry.id === 'action-bar' && <ActionBarExamples />}
       {entry.id === 'select' && <SelectTreeExperimentLink />}
       {(entry.id === 'drawer' || entry.id === 'fridge') && (
         <section className="doc-section">

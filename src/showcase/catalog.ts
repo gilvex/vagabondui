@@ -27,6 +27,15 @@ function entry<Id extends string>(
 
 export const catalog = [
   entry(
+    'action-bar',
+    'Action Bar',
+    'Actions',
+    'A bottom toolbar for bulk actions and save/discard workflows, with floating and docked styles.',
+    ['ActionBar', 'ActionBarLabel', 'ActionBarGroup', 'ActionBarButton', 'ActionBarClose'],
+    '<ActionBar\n  label="Selection actions"\n  open={selected.length > 0}\n  onOpenChange={(open) => { if (!open) setSelected([]) }}\n>\n  <ActionBarLabel>{selected.length} selected</ActionBarLabel>\n  <ActionBarGroup>\n    <ActionBarButton variant="default" onClick={archiveSelected}>Archive</ActionBarButton>\n    <ActionBarClose aria-label="Clear selection" />\n  </ActionBarGroup>\n</ActionBar>',
+    'ActionBar:\n  label: string (accessible toolbar name)\n  open?, defaultOpen? (true), onOpenChange?: (open: boolean) => void\n  variant?: floating | docked (floating)\n  position?: fixed | sticky | inline (fixed)\n  align?: start | center | end (center)\n  closeOnEscape?: boolean (true; only while focus is in the bar)\n  returnFocusRef?: RefObject<HTMLElement | null>\n  portalled?: boolean (true for fixed, false otherwise)\n  container?: HTMLElement | null (portal container)\n  positionerClassName?: string\n  Radix Toolbar props including dir, loop, className, and ref; horizontal only.\nActionBarButton / ActionBarClose: Button props, including asChild and loading.\nActionBarLabel / ActionBarGroup: native div props.\nActionBarSeparator: Radix Toolbar Separator props.\nNo focus trap, scroll lock, or outside-click dismissal.\nUse ActionBarButton for each action to participate in roving keyboard focus.',
+  ),
+  entry(
     'button',
     'Button',
     'Actions',

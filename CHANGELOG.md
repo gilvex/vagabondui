@@ -2,6 +2,14 @@
 
 Release notes for the component library and showcase. The [changelog page](https://gilvex.github.io/vagabondui/#changelog) includes links to live examples.
 
+## 0.4.0 — 2026-10-07
+
+- Added Action Bar with floating/docked styles and fixed, sticky, or inline placement.
+- Added non-modal toolbar keyboard navigation, focus restoration, reduced motion, and mobile safe-area spacing.
+- Added file-selection actions (archive/undo, export, review) and a sticky save/discard example, with pattern references and API documentation.
+- Added typed root and `vagabond-ui/action-bar` exports, compiled styles, and composable label, group, button, close, and separator parts. The catalog now contains 38 component families.
+- Verified keyboard navigation, nested menus, disabled actions, focus restoration after archiving all rows, all-brand light/dark accessibility, 320px layouts, and isolated package consumption.
+
 ## 0.3.0 — 2026-10-07
 
 ### Added
