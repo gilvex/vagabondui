@@ -13,6 +13,6 @@ assert.equal(
 assert.ok(process.env.GITHUB_OUTPUT, 'This script runs in the publish workflow.')
 await appendFile(
   process.env.GITHUB_OUTPUT,
-  `tarball=artifacts/${manifest.name}-${manifest.version}.tgz\n`,
+  `tarball=./artifacts/${manifest.name}-${manifest.version}.tgz\n`,
 )
 console.log(`Publishing requested for ${manifest.name}@${manifest.version}`)
