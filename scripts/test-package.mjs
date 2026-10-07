@@ -197,6 +197,24 @@ try {
   await page.screenshot({ path: join(artifacts, 'package-consumer.png') })
   await dialog.getByRole('button', { name: 'Done', exact: true }).click()
   await expect(dialog).not.toBeVisible()
+  for (const [name, direction] of [
+    ['drawer', 'bottom'],
+    ['fridge', 'right'],
+  ]) {
+    const trigger = page.getByRole('button', { name: `Open ${name}`, exact: true })
+    await trigger.click()
+    const panel = page.getByRole('dialog', { name: `Package ${name}` })
+    await expect(panel).toHaveAttribute('data-direction', direction)
+    await expect(panel).toHaveCSS('position', 'fixed')
+    await expect(panel).toHaveCSS('background-color', 'rgb(27, 30, 25)')
+    const box = await panel.boundingBox()
+    assert.ok(box && Math.abs(box.y + box.height - page.viewportSize().height) < 2)
+    if (direction === 'right')
+      assert.ok(Math.abs(box.x + box.width - page.viewportSize().width) < 2)
+    await panel.getByRole('button', { name: 'Done', exact: true }).click()
+    await expect(panel).not.toBeVisible()
+    await expect(trigger).toBeFocused()
+  }
   assert.deepEqual(errors, [])
   passed = true
   console.log(`Verified npm tarball: ${manifest.name}@${manifest.version} (${files.size} files).`)

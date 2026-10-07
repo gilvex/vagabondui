@@ -19,7 +19,12 @@ export function useOverlayFocus(handlers: Handlers): Handlers {
     },
     onCloseAutoFocus(event) {
       handlers.onCloseAutoFocus?.(event)
-      if (!event.defaultPrevented && returnFocus.current?.isConnected) {
+      if (
+        !event.defaultPrevented &&
+        returnFocus.current?.isConnected &&
+        returnFocus.current !== document.body &&
+        returnFocus.current !== document.documentElement
+      ) {
         event.preventDefault()
         returnFocus.current.focus({ preventScroll: true })
       }

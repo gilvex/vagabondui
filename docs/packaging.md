@@ -2,7 +2,7 @@
 
 ## Status
 
-`packages/ui` is a publishable package named **vagabond-ui**, version **0.2.0**. This change prepares packaging and release automation; it does not publish a registry version. A tested local tarball is immediately installable with npm.
+`packages/ui` is the npm package **vagabond-ui**, version **0.3.0**. Install it with `npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19`, or use a tested local tarball. See the [changelog](../CHANGELOG.md) for release details.
 
 The root `vagabond-ui-showcase` package is private. It depends on `vagabond-ui` using `workspace:*` and imports the same public paths that external consumers use.
 
@@ -80,7 +80,7 @@ export default defineConfig(({ command }) => ({
 
 The application's TypeScript configuration also includes `"customConditions": ["vagabond-source"]`. Production builds deliberately use compiled exports, and the separate tarball consumer verifies the published declarations without that condition.
 
-In an **npm workspaces** monorepo, include the package folder in the root `workspaces` array and depend on its matching version (`"vagabond-ui": "0.2.0"`). npm links matching local workspaces; pnpm's `workspace:*` protocol is for the pnpm/Yarn workflow and is not required by npm.
+In an **npm workspaces** monorepo, include the package folder in the root `workspaces` array and depend on its matching version (`"vagabond-ui": "0.3.0"`). npm links matching local workspaces; pnpm's `workspace:*` protocol is for the pnpm/Yarn workflow and is not required by npm.
 
 ## Install an unpublished build
 
@@ -88,19 +88,19 @@ In an **npm workspaces** monorepo, include the package folder in the root `works
 pnpm package:pack
 
 # In another project:
-npm install /absolute/path/to/artifacts/vagabond-ui-0.2.0.tgz
+npm install /absolute/path/to/artifacts/vagabond-ui-0.3.0.tgz
 ```
 
 The tarball is a normal npm artifact, not a source link. `pnpm test:package` checks it in an isolated temporary project with its own React installation, strict declaration checking, and browser interaction tests.
 
-## First npm publication
+## npm publication
 
 When you are ready to publish:
 
 1. Choose the version in `packages/ui/package.json`, update installation examples if needed, and commit it.
 2. Run `pnpm check` and confirm the matching GitHub Verify run passes.
 3. Authenticate locally with `npm login`; confirm the account with `npm whoami`.
-4. Publish the verified archive: `npm publish ./artifacts/vagabond-ui-0.2.0.tgz --access public`.
+4. Publish the verified archive: `npm publish ./artifacts/vagabond-ui-0.3.0.tgz --access public`.
 
 The npm account must have permission to publish the chosen package name. npm versions are immutable, so subsequent releases need a new version. Do not put npm tokens in repository files.
 

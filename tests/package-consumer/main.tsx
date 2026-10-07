@@ -13,6 +13,26 @@ import {
 } from 'vagabond-ui/dialog'
 import { SelectTree, type SelectTreeOption } from 'vagabond-ui/select-tree'
 import { Switch } from 'vagabond-ui/switch'
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerBody,
+  DrawerFooter,
+  DrawerClose,
+} from 'vagabond-ui/drawer'
+import {
+  Fridge,
+  FridgeTrigger,
+  FridgeContent,
+  FridgeTitle,
+  FridgeDescription,
+  FridgeBody,
+  FridgeFooter,
+  FridgeClose,
+} from 'vagabond-ui/fridge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'vagabond-ui/tabs'
 import 'vagabond-ui/styles.css'
 
@@ -65,6 +85,38 @@ function App() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
+          <Drawer>
+            <DrawerTrigger asChild>
+              <Button>Open drawer</Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerBody>
+                <DrawerTitle>Package drawer</DrawerTitle>
+                <DrawerDescription>Bottom panel from the tarball.</DrawerDescription>
+              </DrawerBody>
+              <DrawerFooter>
+                <DrawerClose asChild>
+                  <Button>Done</Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
+          <Fridge>
+            <FridgeTrigger asChild>
+              <Button>Open fridge</Button>
+            </FridgeTrigger>
+            <FridgeContent>
+              <FridgeBody>
+                <FridgeTitle>Package fridge</FridgeTitle>
+                <FridgeDescription>Right panel from the tarball.</FridgeDescription>
+              </FridgeBody>
+              <FridgeFooter>
+                <FridgeClose asChild>
+                  <Button>Done</Button>
+                </FridgeClose>
+              </FridgeFooter>
+            </FridgeContent>
+          </Fridge>
         </CardContent>
       </Card>
     </main>

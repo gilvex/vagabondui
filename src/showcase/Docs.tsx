@@ -325,8 +325,7 @@ function Installation() {
     <>
       <Heading title="Installation">
         Use Vagabond UI as an npm-compatible package or a workspace dependency. React 19 is
-        required. Registry publication is a separate release step; the tarball and workspace options
-        are ready now.
+        required. Install from npm, use a packed tarball, or link it in your monorepo.
       </Heading>
       <Section title="Run this repository">
         <p>
@@ -340,14 +339,13 @@ function Installation() {
       </Section>
       <Section title="Install the package">
         <p>
-          Until the first npm release, generate a tarball and install it in another React
-          application. After publication, the registry command uses the same package name and API.
-          React and React DOM are peers; implementation dependencies install automatically.
+          Install version 0.3.0 for Drawer, Fridge, and the full component catalog. React and React
+          DOM are peers; implementation dependencies install automatically.
         </p>
         <CodeBlock
           label="Terminal"
           code={
-            '# From this repository:\npnpm package:pack\n\n# In a separate app, using the generated archive:\nnpm install /path/to/artifacts/vagabond-ui-0.2.0.tgz\n\n# After an npm registry release:\nnpm install vagabond-ui react@^19 react-dom@^19'
+            'npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19\n\n# Or test a local build from this repository:\npnpm package:pack\n\n# In a separate app, using the generated archive:\nnpm install /path/to/artifacts/vagabond-ui-0.3.0.tgz'
           }
         />
       </Section>
@@ -517,18 +515,58 @@ function Changelog() {
   return (
     <>
       <Heading title="Changelog">Changes to the component library and documentation.</Heading>
-      <Section title="Unreleased — Select Tree experiment">
+      <Section title="0.3.0 — Drawer and Fridge">
+        <p>
+          <time dateTime="2026-10-07">October 7, 2026</time> · 37 component families
+        </p>
         <ul className="doc-list">
+          <li>
+            Added <a href="#component/drawer">Drawer</a>, an animated bottom panel with a working
+            report-scheduling example.
+          </li>
+          <li>
+            Added <a href="#component/fridge">Fridge</a>, the right-opening Drawer variant, with
+            editable order details and a nested cancellation confirmation.
+          </li>
+          <li>
+            Both panels support handle-only drag dismissal, independently scrolling content, pinned
+            footers, keyboard focus management, and reduced motion.
+          </li>
+          <li>
+            Added typed root and subpath exports, compiled styles, and usage/API documentation for
+            both components.
+          </li>
+          <li>
+            Improved primary-button hover contrast in light themes and overlay focus restoration
+            when the previous target was the document body.
+          </li>
+          <li>
+            Added mouse/touch gesture, nested overlay, narrow-screen, all-brand accessibility, and
+            isolated package-consumer checks.
+          </li>
+          <li>
+            Unified the Meridian Bank app into one template with five internal pages, responsive
+            navigation, and textured payment cards.
+          </li>
+        </ul>
+        <CodeBlock label="Update from npm" code="npm install vagabond-ui@^0.3.0" />
+      </Section>
+      <Section title="0.2.0 — Package and component expansion">
+        <p>
+          <time dateTime="2026-10-03">October 3, 2026</time> · First npm package release
+        </p>
+        <ul className="doc-list">
+          <li>
+            Published the ESM package with TypeScript declarations, source files, compiled CSS, and
+            Tailwind CSS 4 integration.
+          </li>
+          <li>Added Vagabond, Gilvex, and GilGil visual presets with light and dark themes.</li>
           <li>Added an opt-in hierarchical picker with searchable branches and selected paths.</li>
           <li>
             Included keyboard navigation, disabled choices, selectable groups, and native form
             integration.
           </li>
           <li>Added location and project-scope examples alongside the existing flat Select.</li>
-        </ul>
-      </Section>
-      <Section title="Unreleased — Business applications">
-        <ul className="doc-list">
           <li>
             Expanded the template catalog to nine pages, with category filtering and independent
             loading.
@@ -539,10 +577,6 @@ function Changelog() {
             Connected sorting-center and pickup-point workflows through shared parcel records.
           </li>
           <li>Added a support inbox with linked orders and a billing/invoice ledger.</li>
-        </ul>
-      </Section>
-      <Section title="Unreleased — Templates and motion">
-        <ul className="doc-list">
           <li>
             Added dashboard, task workspace, and settings templates with shared browser-local state.
           </li>
@@ -554,11 +588,7 @@ function Changelog() {
             animated task cards.
           </li>
           <li>Fixed notification actions shrinking and wrapping on narrow screens.</li>
-        </ul>
-      </Section>
-      <Section title="0.2.0 — Component expansion">
-        <ul className="doc-list">
-          <li>Expanded the catalog from 10 to 34 component families.</li>
+          <li>Expanded the catalog from 10 to 35 component families, including Select Tree.</li>
           <li>Moved components into individual files with composable APIs.</li>
           <li>Added dedicated documentation routes for every component.</li>
           <li>Fixed dialog entrance positioning by separating layout from animation.</li>
@@ -566,7 +596,7 @@ function Changelog() {
           <li>Replaced promotional sections with a documentation-first layout.</li>
         </ul>
       </Section>
-      <Section title="0.1.0 — Initial release">
+      <Section title="0.1.0 — Initial source preview">
         <p>
           Initial React and Tailwind implementation with semantic themes and ten component families.
         </p>

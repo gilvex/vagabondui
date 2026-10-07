@@ -1,15 +1,17 @@
 # Vagabond UI
 
-35 React component families, semantic light/dark themes, and Motion interactions.
+37 React component families, semantic light/dark themes, and Motion interactions.
 
-[Live showcase](https://gilvex.github.io/vagabondui/) · [Source](https://github.com/gilvex/vagabondui) · [Documentation](https://gilvex.github.io/vagabondui/#installation)
+Drawer opens from the bottom; Fridge is its right-opening variant. Both provide handle-only drag dismissal, a scrollable body, a pinned footer, focus restoration, and reduced-motion support. Import from `vagabond-ui/drawer` or `vagabond-ui/fridge`, or use the root barrel. Compose Header, Title, Description, Body, and Footer inside Content for an accessible panel.
 
-This package is prepared for npm publication. Registry publication is a separate release step; until it is published, use a packed tarball or a workspace dependency as described below.
+[Live showcase](https://gilvex.github.io/vagabondui/) · [Source](https://github.com/gilvex/vagabondui) · [Documentation](https://gilvex.github.io/vagabondui/#installation) · [Changelog](https://gilvex.github.io/vagabondui/#changelog)
 
-## Install from npm after publication
+Version **0.3.0** adds Drawer and Fridge, improves primary-button hover contrast, and refines overlay focus restoration.
+
+## Install from npm
 
 ```sh
-npm install vagabond-ui react@^19 react-dom@^19
+npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19
 ```
 
 React and React DOM are peers. Radix, Motion, icons, and the remaining implementation dependencies are installed automatically.
@@ -91,7 +93,7 @@ From the repository root:
 
 ```sh
 pnpm package:pack
-npm install ./artifacts/vagabond-ui-0.2.0.tgz
+npm install ./artifacts/vagabond-ui-0.3.0.tgz
 ```
 
 The archive contains compiled ES modules, declarations/maps, CSS, copyable component source, README, and license. It excludes showcase applications, sample business data, tests, and build scripts.

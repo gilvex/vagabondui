@@ -1,6 +1,6 @@
 {
   "name": "vagabond-ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Accessible React components, semantic themes, and Motion interactions for product interfaces.",
   "license": "MIT",
   "type": "module",
@@ -148,6 +148,18 @@
       "types": "./dist/components/ui/dropdown-menu.d.ts",
       "import": "./dist/components/ui/dropdown-menu.js",
       "default": "./dist/components/ui/dropdown-menu.js"
+    },
+    "./drawer": {
+      "vagabond-source": "./src/components/ui/drawer.tsx",
+      "types": "./dist/components/ui/drawer.d.ts",
+      "import": "./dist/components/ui/drawer.js",
+      "default": "./dist/components/ui/drawer.js"
+    },
+    "./fridge": {
+      "vagabond-source": "./src/components/ui/fridge.tsx",
+      "types": "./dist/components/ui/fridge.d.ts",
+      "import": "./dist/components/ui/fridge.js",
+      "default": "./dist/components/ui/fridge.js"
     },
     "./field": {
       "vagabond-source": "./src/components/ui/field.tsx",

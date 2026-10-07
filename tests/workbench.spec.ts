@@ -193,8 +193,10 @@ test('form components support keyboard input and linked validation', async ({ pa
   await expect(page.getByText('Can create and edit projects.')).toBeVisible()
   await page.goto('/#component/radio-group')
   await page.getByRole('radio', { name: 'Monthly', exact: true }).focus()
-  await page.keyboard.press('ArrowDown')
+  // Radix defers roving focus to a timer and selects while the arrow key is held.
+  await page.keyboard.down('ArrowDown')
   await expect(page.getByRole('radio', { name: 'Yearly', exact: true })).toBeChecked()
+  await page.keyboard.up('ArrowDown')
   await page.goto('/#component/slider')
   await page.getByRole('slider', { name: 'Volume' }).focus()
   await page.keyboard.press('ArrowRight')

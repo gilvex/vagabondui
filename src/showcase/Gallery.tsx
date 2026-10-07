@@ -75,6 +75,25 @@ export function ComponentPage({ entry }: { entry: CatalogEntry }) {
       </div>
       {entry.id === 'select-tree' && <SelectTreeExamples />}
       {entry.id === 'select' && <SelectTreeExperimentLink />}
+      {(entry.id === 'drawer' || entry.id === 'fridge') && (
+        <section className="doc-section">
+          <h2>Two directions, one interaction</h2>
+          <p>
+            Drag the handle to dismiss, scroll the body independently, or use Escape and the close
+            button. The footer remains visible while you work. Try Expand to review the panel inside
+            another dialog.
+          </p>
+          <a
+            className="installation-link"
+            href={`#component/${entry.id === 'drawer' ? 'fridge' : 'drawer'}`}
+          >
+            {entry.id === 'drawer'
+              ? 'Review Fridge — opens from the right'
+              : 'Review Drawer — opens from the bottom'}{' '}
+            <ArrowRight size={16} />
+          </a>
+        </section>
+      )}
       <section className="doc-section">
         <h2>Usage</h2>
         <CodeBlock code={entry.code} />

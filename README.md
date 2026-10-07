@@ -1,8 +1,8 @@
 # Vagabond UI
 
-35 React component families, ten application templates with fourteen interactive pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
+37 React component families, ten application templates with fourteen interactive pages, and three coordinated visual presets. Built with React 19, TypeScript, Radix, Tailwind CSS 4, and Motion.
 
-**[Live showcase](https://gilvex.github.io/vagabondui/) · [Templates](https://gilvex.github.io/vagabondui/#templates) · [Design preview](https://gilvex.github.io/vagabondui/#design-preview)**
+**[Live showcase](https://gilvex.github.io/vagabondui/) · [Templates](https://gilvex.github.io/vagabondui/#templates) · [Design preview](https://gilvex.github.io/vagabondui/#design-preview) · [Changelog](https://gilvex.github.io/vagabondui/#changelog)**
 
 ## Repository layout
 
@@ -44,7 +44,7 @@ pnpm check         # Formatting, lint, unit/browser tests, builds, and package v
 
 ## Install the library
 
-**Package setup is complete; no npm registry release was performed as part of this setup.** You can install the generated tarball now. The package name is `vagabond-ui` and its current version is `0.2.0`.
+The package name is [`vagabond-ui`](https://www.npmjs.com/package/vagabond-ui). Version **0.3.0** adds Drawer and Fridge. See the [release notes](CHANGELOG.md) for details.
 
 ### Install a local tarball with npm
 
@@ -53,13 +53,13 @@ pnpm check         # Formatting, lint, unit/browser tests, builds, and package v
 pnpm package:pack
 
 # In a separate React application; adjust the path to this checkout:
-npm install /path/to/vagabondui/artifacts/vagabond-ui-0.2.0.tgz
+npm install /path/to/vagabondui/artifacts/vagabond-ui-0.3.0.tgz
 ```
 
-### Install from npm after publication
+### Install from npm
 
 ```sh
-npm install vagabond-ui react@^19 react-dom@^19
+npm install vagabond-ui@^0.3.0 react@^19 react-dom@^19
 ```
 
 React and React DOM are peers; implementation dependencies are installed automatically. The root application remains private and cannot accidentally be published as the UI package.
@@ -114,13 +114,13 @@ Fonts are consumer-owned. The default preset uses Inter and JetBrains Mono; Gilv
 
 ## Components
 
-| Category   | Families                                                                                  |
-| ---------- | ----------------------------------------------------------------------------------------- |
-| Actions    | Button, Dropdown Menu, Toggle, Toggle Group                                               |
-| Forms      | Checkbox, Field, Input, Label, Radio Group, Select, Select Tree, Slider, Switch, Textarea |
-| Display    | Accordion, Avatar, Badge, Card, Collapsible, Scroll Area, Separator, Table                |
-| Feedback   | Alert, Alert Dialog, Dialog, Popover, Progress, Sheet, Skeleton, Toast, Tooltip           |
-| Navigation | Breadcrumb, Command, Pagination, Tabs                                                     |
+| Category   | Families                                                                                        |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| Actions    | Button, Dropdown Menu, Toggle, Toggle Group                                                     |
+| Forms      | Checkbox, Field, Input, Label, Radio Group, Select, Select Tree, Slider, Switch, Textarea       |
+| Display    | Accordion, Avatar, Badge, Card, Collapsible, Scroll Area, Separator, Table                      |
+| Feedback   | Alert, Alert Dialog, Dialog, Drawer, Fridge, Popover, Progress, Sheet, Skeleton, Toast, Tooltip |
+| Navigation | Breadcrumb, Command, Pagination, Tabs                                                           |
 
 Select Tree supports searchable hierarchies, selectable groups, optional icons, keyboard navigation, and native form behavior. [Experiment notes](docs/select-tree.md).
 

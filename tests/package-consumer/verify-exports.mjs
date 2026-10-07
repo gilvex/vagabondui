@@ -38,7 +38,7 @@ assert.match(
   /Server render/,
 )
 assert.equal(root.cn('px-2', 'px-4'), 'px-4')
-for (const subpath of ['dialog', 'sheet', 'select-tree', 'switch', 'tabs']) {
+for (const subpath of ['dialog', 'drawer', 'fridge', 'sheet', 'select-tree', 'switch', 'tabs']) {
   const source = await readFile(require.resolve(`vagabond-ui/${subpath}`), 'utf8')
   assert.match(source, /^['"]use client['"];?/, `${subpath} lost its client directive.`)
 }

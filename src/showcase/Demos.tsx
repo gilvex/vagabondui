@@ -1,6 +1,7 @@
 import { Search } from 'lucide-react'
 import type { ComponentId } from './catalog'
 import { SelectTreeDemo } from './demos/select-tree'
+import { DrawerDemo, FridgeDemo } from './demos/drawers'
 import {
   CheckboxDemo,
   FieldDemo,
@@ -56,6 +57,8 @@ const demos: Record<ComponentId, React.ComponentType> = {
   badge: BadgeDemo,
   card: CardDemo,
   dialog: DialogDemo,
+  drawer: DrawerDemo,
+  fridge: FridgeDemo,
   alert: AlertDemo,
   'alert-dialog': AlertDialogDemo,
   avatar: AvatarDemo,
